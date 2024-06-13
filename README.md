@@ -6,18 +6,33 @@ Esta descripción proporciona una visión general de cómo podría ser una aplic
 
 ## Tecnologías a usar:
 - Angular
+    - Angular Material
 - Node.js
     - Express
+    - Nodemon
+    - TypeScript
+    - Promise-MySQL
     - JSON Web Token
     - bcrypt.js
  - MYSQL
 ## Bocetos
-[LOGIN](![image](https://github.com/cr7kawai/Voluntex/assets/99992492/9d1b9a79-c176-49c2-8553-65795caa512d)
-[REGISTRO](![image](https://github.com/cr7kawai/Voluntex/assets/99992492/1a661268-bc74-40bc-a390-bff6bec42790)
-[PERFIL](![image](https://github.com/cr7kawai/Voluntex/assets/99992492/a41ed659-4f16-48ff-8e1c-5de3d63ab8e6)
-[Vistas](![image](https://github.com/cr7kawai/Voluntex/assets/99992492/fef3e81f-7e12-4b8b-ac09-537d88fd4b3d)
-[Vista2](![image](https://github.com/cr7kawai/Voluntex/assets/99992492/1690fb73-9303-40a8-a6e4-aff30eb422f8)
-[Vista3](![image](https://github.com/cr7kawai/Voluntex/assets/99992492/8b168b0d-f2c2-498f-8de1-5958ef8ddb46)
+### Login
+(![image](https://github.com/cr7kawai/Voluntex/assets/99992492/9d1b9a79-c176-49c2-8553-65795caa512d)
+
+### Registro
+(![image](https://github.com/cr7kawai/Voluntex/assets/99992492/1a661268-bc74-40bc-a390-bff6bec42790)
+
+### Perfil
+(![image](https://github.com/cr7kawai/Voluntex/assets/99992492/a41ed659-4f16-48ff-8e1c-5de3d63ab8e6)
+
+### Vista de voluntariados
+(![image](https://github.com/cr7kawai/Voluntex/assets/99992492/fef3e81f-7e12-4b8b-ac09-537d88fd4b3d)
+
+### Gestión de voluntariados
+(![image](https://github.com/cr7kawai/Voluntex/assets/99992492/1690fb73-9303-40a8-a6e4-aff30eb422f8)
+
+### Vista de voluntariado
+(![image](https://github.com/cr7kawai/Voluntex/assets/99992492/8b168b0d-f2c2-498f-8de1-5958ef8ddb46)
 
 
 ## Link de Jira
