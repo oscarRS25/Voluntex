@@ -1,0 +1,107 @@
+<body>   
+    <main id="container">
+        <form id="login_form">
+            <!-- FORM HEADER -->
+            <div id="form_header">
+                <h1>Login</h1>
+                <i id="mode_icon" class="fa-solid fa-moon"></i>
+            </div>
+
+            <!-- INPUTS -->
+            <div id="inputs">
+                <!-- EMAIL -->
+                <div class="input-box">
+                    <label for="email">
+                        E-mail
+                        <div class="input-field">
+                            <i class="fa-solid fa-envelope"></i>
+                            <input 
+                                type="email" 
+                                id="email" 
+                                placeholder="algo@example.com"
+                                [(ngModel)]="usuario.email"
+                                name="email"
+                            >
+                        </div>
+                    </label>
+                </div>
+                
+                <!-- PASSWORD -->
+                <div class="input-box">
+                    <label for="password">
+                        Password
+                        <div class="input-field">
+                            <i class="fa-solid fa-key"></i>
+                            <input 
+                                type="password" 
+                                id="password"
+                                placeholder="********"
+                                [(ngModel)]="usuario.password"
+                                name="password"
+                            >
+                        </div>
+                    </label>
+                    <!-- FORGOT PASSWORD -->
+                    <div class="links">
+                        <a href="/changePassword">
+                            ¿Olvidaste tu contraseña? recupérala aquí.
+                        </a>
+                    </div>
+
+                    <!-- NEW ACCOUNT -->
+                    <div class="links">
+                        <a href="/register">
+                            ¿Quiéres registrar tu empresa? hazlo auí.
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- LOGIN BUTTON -->
+            <button type="submit" id="login_button" (click)="login()" [disabled]="isLoggingIn">
+                Login
+            </button>
+        </form>
+    </main>
+
+    <!-- Modal for OTP, controlled by Angular -->
+    <div
+        class="modal"
+        tabindex="-1"
+        role="dialog"
+        *ngIf="showOtpModal"
+        style="display: block; background-color: rgba(0, 0, 0, 0.5)"
+    >
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title">Ingrese su código de autenticación</h5>
+                <button
+                    type="button"
+                    class="btn-close"
+                    (click)="closeModal()"
+                ></button>
+                </div>
+            <div class="input-field" style="margin: 10px 30px;">
+            <input
+                type="text"
+                class="input-field"
+                placeholder="OTP"
+                [(ngModel)]="otp"
+            />
+            </div>
+            <div class="modal-footer">
+            <button
+                type="button"
+                class="btn btn-secondary"
+                (click)="closeModal()"
+            >
+                Cerrar
+            </button>
+            <button type="button" class="btn btn-principal" (click)="verifyOtp()">
+                Validar
+            </button>
+            </div>
+            </div>
+        </div>
+    </div>
+</body>

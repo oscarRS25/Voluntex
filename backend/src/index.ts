@@ -2,7 +2,8 @@ import express, { Application } from 'express';
 import morgan from 'morgan';
 import cors from 'cors';
 
-import userRoutes from './routes/usuario.routes';
+import usuarioRoutes from './routes/usuario.routes';
+import empresaRoutes from './routes/empresa.routes';
 
 class Server {
 
@@ -24,7 +25,8 @@ class Server {
     }
 
     routes(): void {
-        this.app.use('/api/user', userRoutes);
+        this.app.use('/api/usuarios', usuarioRoutes);
+        this.app.use('/api/empresa', empresaRoutes);
     }
 
     start() {
@@ -37,3 +39,5 @@ class Server {
 
 const server = new Server();
 server.start();
+
+//hrwp tjwr emfp hwqz

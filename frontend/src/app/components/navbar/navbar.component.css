@@ -1,0 +1,104 @@
+.navbar {
+  background-color: #f2f2f2; /* Cambia el color de fondo del navbar */
+  transition: background-color 0.3s ease; /* Añade una animación suave al cambiar el color de fondo */
+}
+
+.navbar-brand {
+  color: #273240; /* Cambia el color del texto de la marca */
+  transition: color 0.3s ease; /* Añade una animación suave al cambiar el color del texto */
+}
+
+.logo {
+  height: 70px; /* Aumenta el tamaño del logo */
+  transition: height 0.3s ease; /* Añade una animación suave al cambiar el tamaño del logo */
+}
+
+.nav-link {
+  color: black; /* Cambia el color de los enlaces */
+  transition: color 0.3s ease; /* Añade una animación suave al cambiar el color de los enlaces */
+}
+
+.nav-link.active {
+  color: black; /* Cambia el color de los enlaces activos */
+  transition: color 0.3s ease; /* Añade una animación suave al cambiar el color de los enlaces activos */
+}
+
+.navbar-toggler {
+  border-color: #fae1ca; /* Cambia el color del borde del botón de colapso */
+  transition: border-color 0.3s ease; /* Añade una animación suave al cambiar el color del borde */
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(92,75,81, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+  transition: background-image 0.3s ease; /* Añade una animación suave al cambiar el fondo del ícono del botón de colapso */
+}
+
+.nav-link.active-link {
+  color: #273240; /* Azul */
+  font-weight: bold; /* Negrita */
+}
+
+.nav-link:hover {
+  color: #273240; /* Este es el código de color para morado */
+}
+
+.navbar {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+}
+
+.nav-link {
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #7ba4ad; /* Morado */
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.nav-link:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
+
+.nav-link:hover {
+  background-color: rgba(128, 0, 128, 0.1); /* Morado claro */
+  border-radius: 5px; /* Bordes redondeados */
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.nombre-link {
+  display: block;
+  padding-top: 0.5rem;
+  padding-right: 0.4rem;
+  padding-left: 0.4rem;
+  text-decoration: none;
+  color: black;
+}
+
+.buscador {
+  margin-right: 4px;
+}
+
+@media (max-width: 991px) {
+  .nombre-link {
+    padding-left: 0rem;
+  }
+  .buscador {
+    margin-right: 0px;
+  }
+}

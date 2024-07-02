@@ -1,8 +1,9 @@
 import { Router } from "express";
 
 import usuarioController from "../controllers/usuario.controller";
+import { verifyToken } from "../middlewares/auth.middleware";
 
-class UserRoutes{
+class UsuarioRoutes{
     
     public router: Router = Router();
 
@@ -11,14 +12,26 @@ class UserRoutes{
     }
 
     config(): void {
-        /* --- Cambiar por rutas propias ---
-        this.router.get('/:id_proyecto', usuarioController.obtenerNotas);
-        this.router.post('/', usuarioController.registrarNota);
-        this.router.put('/:id_nota', usuarioController.modificarNota);
-        this.router.delete('/:id_nota', usuarioController.eliminarNota);
-        */
+        this.router.get('/',verifyToken, usuarioController.obtenerUsuarios);
+        this.router.get('/:id',verifyToken, usuarioController.verUsuario);
+        this.router.get('/credenciales/:id',verifyToken, usuarioController.obtenerCredenciales);
+        this.router.get('/getByEmail/:email',usuarioController.obtenerUsuarioEmail);
+        this.router.post('/',usuarioController.registrarUsuario);
+        this.router.put('/:id', usuarioController.modificarUsuario);
+        this.router.delete('/:id',verifyToken, usuarioController.eliminarUsuario);
+        this.router.get('/password/:email',usuarioController.enviarEmailConfirmacion);
+        this.router.put('/password/:id/:email',usuarioController.cambiarContrasena);
+        
+        this.router.post('/validarEmailTel/',usuarioController.validarTelefonoEmail);
+
+        // Con token v1 pa registro y cambio de suscripción
+        this.router.post('/inicio_sesion',usuarioController.inicio_sesion);
+
+        // Con tokeken v2 pa login normal
+        this.router.post('/login',usuarioController.login);
+        this.router.post("/verify-otp", usuarioController.verifyOtp);
     }
 }
 
-const userRoutes = new UserRoutes();
-export default userRoutes.router;
+const usuarioRoutes = new UsuarioRoutes();
+export default usuarioRoutes.router;
