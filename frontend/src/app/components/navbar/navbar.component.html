@@ -1,0 +1,92 @@
+<nav class="navbar navbar-expand-lg">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">
+      <img class="logo" src="/assets/estrella.png" alt="" />
+      AGENDA JART
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item" *ngIf="rol != 3 && rol != null">
+          <a
+            class="nav-link active"
+            href="/areas"
+            routerLink="/areas"
+            routerLinkActive="active-link"
+            >Áreas</a
+          >
+        </li>
+        <li class="nav-item" *ngIf="rol != 3 && rol != null">
+          <a
+            class="nav-link active"
+            href="/usuarios"
+            routerLink="/usuarios"
+            routerLinkActive="active-link"
+            >Usuarios</a
+          >
+        </li>
+        <!--
+        <li class="nav-item" *ngIf="rol != null">
+          <a
+            class="nav-link active"
+            href="/proyectos"
+            routerLink="/proyectos"
+            routerLinkActive="active-link"
+            >Proyectos</a
+          >
+        </li>
+        <li class="nav-item" *ngIf="rol == 3 || rol == 4">
+          <a
+            class="nav-link active"
+            href="/notificaciones"
+            routerLink="/notificaciones"
+            routerLinkActive="active-link"
+            >Notificaciones</a
+          >
+        </li>
+        -->
+      </ul>
+      <ul class="navbar-nav">
+        <li class="nav-item buscador">
+          <!--<app-buscador></app-buscador>-->
+        </li>
+        <li class="nav-item" *ngIf="usuario">
+          <a class="nombre-link">{{ usuario }}</a>
+        </li>
+        <li class="nav-item" *ngIf="usuario == null">
+          <a
+            class="nav-link active"
+            href="/login"
+            routerLink="/login"
+            routerLinkActive="active-link"
+            >Iniciar Sesión</a
+          >
+        </li>
+        <li class="nav-item" *ngIf="usuario == null">
+          <a
+            class="nav-link active"
+            href="/register"
+            routerLink="/register"
+            routerLinkActive="active-link"
+            >Registrar mi empresa</a
+          >
+        </li>
+        <li class="nav-item" *ngIf="rol != null">
+          <a class="nav-link active" href="/" (click)="cerrarSesion()"
+            >Cerrar Sesión</a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

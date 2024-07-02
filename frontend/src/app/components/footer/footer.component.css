@@ -1,0 +1,43 @@
+.logo {
+  height: 70px; /* Tamaño del logo ajustado */
+  transition: height 0.3s ease; /* Añade una animación suave al cambiar el tamaño del logo */
+}
+
+/* footer.component.css */
+.footer {
+  background-color: #f2f2f2; /* Color de fondo del footer */
+  color: #000000; /* Color del texto */
+  transition: background-color 0.3s ease; /* Añade una animación suave al cambiar el color de fondo */
+}
+
+.footer .navbar-brand .logo {
+  height: 70px; /* Tamaño del logo ajustado */
+  transition: height 0.3s ease; /* Añade una animación suave al cambiar el tamaño del logo */
+}
+
+.footer .text-uppercase {
+  color: #2f79c3; /* Color azul para los encabezados */
+}
+
+.footer .text-reset {
+  color: #000000; /* Color negro para los enlaces */
+  transition: color 0.3s ease; /* Añade una animación suave al cambiar el color del texto */
+}
+
+.footer .text-reset:hover {
+  color: #3bc391; /* Color verde para los enlaces al pasar el ratón */
+}
+
+.footer .social-links img {
+  max-width: 33px;
+  transition: transform 0.3s ease; /* Añade una animación suave al pasar el ratón */
+}
+
+.footer .social-links img:hover {
+  transform: scale(1.1); /* Aumenta el tamaño de los iconos al pasar el ratón */
+}
+
+.footer .p-2 {
+  background-color: #374047; /* Fondo gris oscuro para la sección de copyright */
+  color: #f8f2e2; /* Texto claro para mejor contraste */
+}
