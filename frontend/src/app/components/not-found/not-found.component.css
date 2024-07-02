@@ -24,12 +24,13 @@
     line-height: 1;
     color: #252427;
     font-weight: 700;
+    text-align: center;
   }
   
   p {
     font-size: 18px;
     margin: 1em 0;
-    text-align: justify;
+    text-align: center;
   }
   
   .go-back a {
