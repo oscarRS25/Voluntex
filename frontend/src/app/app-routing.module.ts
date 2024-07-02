@@ -7,6 +7,7 @@ import { ChangePasswordComponent } from './components/change-password/change-pas
 import { AreasComponent } from './components/areas/areas.component';
 import { PoliticaPrivacidadComponent } from './components/politica-privacidad/politica-privacidad.component';
 import { HomeComponent } from './components/home/home.component';
+import { VoluntariadosComponent } from './components/voluntariados/voluntariados.component';
 
 const routes: Routes = [
   {
@@ -34,6 +35,10 @@ const routes: Routes = [
     component: PoliticaPrivacidadComponent,
   },
   {
+    path: 'voluntariados',
+   component: VoluntariadosComponent,
+  },
+  {
     path: 'notFound',
     component: NotFoundComponent,
   },
@@ -41,6 +46,8 @@ const routes: Routes = [
     path: '**',
     redirectTo: '/notFound',
   },
+  
+
 ];
 
 @NgModule({

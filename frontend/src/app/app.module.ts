@@ -35,6 +35,7 @@ import { HomeComponent } from './components/home/home.component';
     HomeComponent,
     LoginComponent,
     RegisterComponent,
+   
     ChangePasswordComponent,
     SesionComponent,
     AreasComponent,
