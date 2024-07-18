@@ -1,0 +1,219 @@
+<div class="body">
+    <main id="container">
+      <div class="reCaptcha" *ngIf="!captchaValidate">
+        <ngx-recaptcha2 #captchaElem [siteKey]="siteKey" (success)="mostrarFormulario()"></ngx-recaptcha2>
+      </div>
+      <div class="registerForm" *ngIf="captchaValidate">
+        <form [formGroup]="myForm" id="registerForm" (ngSubmit)="registrar()">
+          <!-- FORM HEADER -->
+          <div id="form_header">
+            <h1>Registro de Empresa</h1>
+          </div>
+          <div class="section">
+            <h4 style="margin-bottom: 5px;">Datos de la empresa</h4>
+            <div id="inputs">
+              <div class="input-row row">
+                <div class="input-box col-md-4">
+                  <label for="nomEmpresa">
+                    Empresa
+                    <div class="input-field">
+                      <i class="fa-solid fa-building"></i>
+                      <input type="text" id="nomEmpresa" formControlName="nomEmpresa" class="tres">
+                    </div>
+                    <div *ngIf="myForm.get('nomEmpresa')?.touched && myForm.get('nomEmpresa')?.invalid" class="alertas">
+                      <small *ngIf="myForm.get('nomEmpresa')?.errors?.['required']"><i class="fa-solid fa-circle-exclamation"></i> Este campo es obligatorio</small>
+                      <small *ngIf="myForm.get('nomEmpresa')?.errors?.['maxlength']"><i class="fa-solid fa-circle-exclamation"></i> Máximo 70 caracteres</small>
+                    </div>
+                  </label>
+                </div>
+                <div class="input-box col-md-4">
+                  <label for="pais">
+                    País
+                    <div class="input-field">
+                      <i class="fa-solid fa-earth-americas"></i>
+                      <input type="text" id="pais" formControlName="pais" class="tres">
+                    </div>
+                    <div *ngIf="myForm.get('pais')?.touched && myForm.get('pais')?.invalid" class="alertas">
+                      <small *ngIf="myForm.get('pais')?.errors?.['required']"><i class="fa-solid fa-circle-exclamation"></i> Este campo es obligatorio</small>
+                      <small *ngIf="myForm.get('pais')?.errors?.['maxlength']"><i class="fa-solid fa-circle-exclamation"></i> Máximo 50 caracteres</small>
+                    </div>
+                  </label>
+                </div>
+                <div class="input-box col-md-4">
+                  <label for="estado">
+                    Estado
+                    <div class="input-field">
+                      <i class="fa-solid fa-shield-halved"></i>
+                      <input type="text" id="estado" formControlName="estado" class="tres">
+                    </div>
+                    <div *ngIf="myForm.get('estado')?.touched && myForm.get('estado')?.invalid" class="alertas">
+                      <small *ngIf="myForm.get('estado')?.errors?.['required']"><i class="fa-solid fa-circle-exclamation"></i> Este campo es obligatorio</small>
+                      <small *ngIf="myForm.get('estado')?.errors?.['maxlength']"><i class="fa-solid fa-circle-exclamation"></i> Máximo 50 caracteres</small>
+                    </div>
+                  </label>
+                </div>
+              </div>
+              <div class="input-row row">
+                <div class="input-box col-md-4">
+                  <label for="ciudad">
+                    Ciudad
+                    <div class="input-field">
+                      <i class="fa-solid fa-city"></i>
+                      <input type="text" id="ciudad" formControlName="ciudad" class="tres">
+                    </div>
+                    <div *ngIf="myForm.get('ciudad')?.touched && myForm.get('ciudad')?.invalid" class="alertas">
+                      <small *ngIf="myForm.get('ciudad')?.errors?.['required']"><i class="fa-solid fa-circle-exclamation"></i> Este campo es obligatorio</small>
+                      <small *ngIf="myForm.get('ciudad')?.errors?.['maxlength']"><i class="fa-solid fa-circle-exclamation"></i> Máximo 50 caracteres</small>
+                    </div>
+                  </label>
+                </div>
+                <div class="input-box col-md-4">
+                  <label for="calle">
+                    Calle
+                    <div class="input-field">
+                      <i class="fa-solid fa-road"></i>
+                      <input type="text" id="calle" formControlName="calle" class="tres">
+                    </div>
+                    <div *ngIf="myForm.get('calle')?.touched && myForm.get('calle')?.invalid" class="alertas">
+                      <small *ngIf="myForm.get('calle')?.errors?.['required']"><i class="fa-solid fa-circle-exclamation"></i> Este campo es obligatorio</small>
+                      <small *ngIf="myForm.get('calle')?.errors?.['maxlength']"><i class="fa-solid fa-circle-exclamation"></i> Máximo 50 caracteres</small>
+                    </div>
+                  </label>
+                </div>
+                <div class="input-box col-md-4">
+                  <label for="numero">
+                    Número
+                    <div class="input-field">
+                      <i class="fa-solid fa-hashtag"></i>
+                      <input type="text" id="numero" formControlName="numero" class="tres">
+                    </div>
+                    <div *ngIf="myForm.get('numero')?.touched && myForm.get('numero')?.invalid" class="alertas">
+                      <small *ngIf="myForm.get('numero')?.errors?.['required']"><i class="fa-solid fa-circle-exclamation"></i> Este campo es obligatorio</small>
+                      <small *ngIf="myForm.get('numero')?.errors?.['maxlength']"><i class="fa-solid fa-circle-exclamation"></i> Máximo 10 caracteres</small>
+                    </div>
+                  </label>
+                </div>
+              </div>
+              <div class="input-row row">
+                <div class="input-box col-md-6">
+                  <label for="email">
+                    Email
+                    <div class="input-field">
+                      <i class="fa-solid fa-envelope"></i>
+                      <input type="text" id="email" formControlName="email" class="dos">
+                    </div>
+                    <div *ngIf="myForm.get('email')?.touched && myForm.get('email')?.invalid" class="alertas">
+                      <small *ngIf="myForm.get('email')?.errors?.['required']"><i class="fa-solid fa-circle-exclamation"></i> Este campo es obligatorio</small>
+                      <small *ngIf="myForm.get('email')?.errors?.['maxlength']"><i class="fa-solid fa-circle-exclamation"></i> Máximo 60 caracteres</small>
+                      <small *ngIf="myForm.get('email')?.errors?.['email']"><i class="fa-solid fa-circle-exclamation"></i> El email no es válido</small>
+                    </div>
+                  </label>
+                </div>
+                <div class="input-box col-md-6">
+                  <label for="telefono">
+                    Teléfono
+                    <div class="input-field">
+                      <i class="fa-solid fa-phone"></i>
+                      <input type="text" id="telefono" formControlName="telefono" class="dos">
+                    </div>
+                    <div *ngIf="myForm.get('telefono')?.touched && myForm.get('telefono')?.invalid" class="alertas">
+                      <small *ngIf="myForm.get('telefono')?.errors?.['required']"><i class="fa-solid fa-circle-exclamation"></i> Este campo es obligatorio</small>
+                      <small *ngIf="myForm.get('telefono')?.errors?.['pattern']"><i class="fa-solid fa-circle-exclamation"></i> El teléfono no es válido</small>
+                    </div>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="section">
+            <h4 style="margin-bottom: 5px;">Datos del administrador</h4>
+            <div id="inputs">
+              <div class="input-row row">
+                <div class="input-box col-md-4">
+                  <label for="nombre">
+                    Nombre
+                    <div class="input-field">
+                      <i class="fa-solid fa-user"></i>
+                      <input type="text" id="nombre" formControlName="nombre">
+                    </div>
+                    <div *ngIf="myForm.get('nombre')?.touched && myForm.get('nombre')?.invalid" class="alertas">
+                      <small *ngIf="myForm.get('nombre')?.errors?.['required']"><i class="fa-solid fa-circle-exclamation"></i> Este campo es obligatorio</small>
+                      <small *ngIf="myForm.get('nombre')?.errors?.['maxlength']"><i class="fa-solid fa-circle-exclamation"></i> Máximo 50 caracteres</small>
+                    </div>
+                  </label>
+                </div>
+                <div class="input-box col-md-4">
+                  <label for="apePat">
+                    Apellido paterno
+                    <div class="input-field">
+                      <i class="fa-solid fa-user"></i>
+                      <input type="text" id="apePat" formControlName="apePat">
+                    </div>
+                    <div *ngIf="myForm.get('apePat')?.touched && myForm.get('apePat')?.invalid" class="alertas">
+                      <small *ngIf="myForm.get('apePat')?.errors?.['required']"><i class="fa-solid fa-circle-exclamation"></i> Este campo es obligatorio</small>
+                      <small *ngIf="myForm.get('apePat')?.errors?.['maxlength']"><i class="fa-solid fa-circle-exclamation"></i> Máximo 50 caracteres</small>
+                    </div>
+                  </label>
+                </div>
+                <div class="input-box col-md-4">
+                  <label for="apeMat">
+                    Apellido materno
+                    <div class="input-field">
+                      <i class="fa-solid fa-user"></i>
+                      <input type="text" id="apeMat" formControlName="apeMat">
+                    </div>
+                    <div *ngIf="myForm.get('apeMat')?.touched && myForm.get('apeMat')?.invalid" class="alertas">
+                      <small *ngIf="myForm.get('apeMat')?.errors?.['required']"><i class="fa-solid fa-circle-exclamation"></i> Este campo es obligatorio</small>
+                      <small *ngIf="myForm.get('apeMat')?.errors?.['maxlength']"><i class="fa-solid fa-circle-exclamation"></i> Máximo 50 caracteres</small>
+                    </div>
+                  </label>
+                </div>
+              </div>
+              <div class="input-row row">
+                <div class="input-box col-md-6">
+                  <label for="password">
+                    Contraseña
+                    <div class="input-field">
+                      <i class="fa-solid fa-lock"></i>
+                      <input type="password" id="password" formControlName="password" class="dos">
+                    </div>
+                    <div *ngIf="myForm.get('password')?.touched && myForm.get('password')?.invalid" class="alertas">
+                      <small *ngIf="myForm.get('password')?.errors?.['required']"><i class="fa-solid fa-circle-exclamation"></i> Este campo es obligatorio</small>
+                      <small *ngIf="myForm.get('password')?.errors?.['minlength']"><i class="fa-solid fa-circle-exclamation"></i> Mínimo 8 caracteres</small>
+                      <br *ngIf="myForm.get('password')?.errors?.['minlength']">
+                      <small *ngIf="myForm.get('password')?.errors?.['maxlength']"><i class="fa-solid fa-circle-exclamation"></i> Máximo 16 caracteres</small>
+                      <br *ngIf="myForm.get('password')?.errors?.['maxlength']">
+                      <small *ngIf="myForm.get('password')?.errors?.['pattern']"><i class="fa-solid fa-circle-exclamation"></i> Debe incluir al menos una mayúscula, una minúscula, un carácter especial y un número</small>
+                    </div>
+                  </label>
+                </div>
+                <div class="input-box col-md-6">
+                  <label for="confirmPassword">
+                    Confirmar contraseña
+                    <div class="input-field">
+                      <i class="fa-solid fa-lock"></i>
+                      <input type="password" id="confirmPassword" formControlName="confirmPassword" class="dos">
+                    </div>
+                    <div *ngIf="myForm.get('confirmPassword')?.touched && myForm.get('confirmPassword')?.invalid" class="alertas">
+                      <small *ngIf="myForm.get('confirmPassword')?.errors?.['required']"><i class="fa-solid fa-circle-exclamation"></i> Este campo es obligatorio</small>
+                      <small *ngIf="myForm.hasError('passwordMismatch')"><i class="fa-solid fa-circle-exclamation"></i> Las contraseñas no coinciden</small>
+                    </div>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button type="submit" id="register_button" [disabled]="myForm.invalid">
+            Registrar
+          </button>
+          <div class="links" style="text-align: center; margin-top: -20px;">
+            <a href="/login"> ¿Ya tienes una cuenta? inicia sesión. </a>
+            <br/>
+            <a href="/registrar-voluntario">
+              ¿Te quieres registrar como voluntario? hazlo aquí.
+            </a>
+          </div>
+        </form>
+      </div>
+    </main>
+  </div>

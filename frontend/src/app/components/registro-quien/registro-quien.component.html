@@ -1,0 +1,59 @@
+  <div class="body">
+    <main id="container">
+      <div class="card">
+        <!-- CARD HEADER -->
+        <div id="card_header">
+          <h1>Regístrate</h1>
+        </div>
+        <div class="card-body">
+          <h5>
+            ¿Se desea registrar como empresa o como voluntario?
+          </h5>
+          <div class="row">
+            <div class="col-md-6">
+              <mat-card
+                class="mantenimiento"
+                appearance="outlined"
+                routerLink="/registrar-empresa"
+              >
+                <mat-card-header>
+                  <h6>Empresa</h6>
+                </mat-card-header>
+                <img
+                  mat-card-image
+                  src="../../../assets/empresa.gif"
+                  alt="Empresa"
+                />
+                <mat-card-content>
+                  <p>
+                    Registra tu empresa para ofrecer oportunidades de voluntariado y colaborar en proyectos que impacten positivamente en la comunidad.
+                  </p>
+                </mat-card-content>
+              </mat-card>
+            </div>
+            <div class="col-md-6">
+              <mat-card
+                class="cliente"
+                appearance="outlined"
+                routerLink="/registrar-voluntario"
+              >
+                <mat-card-header>
+                  <h6>Voluntario</h6>
+                </mat-card-header>
+                <img
+                  mat-card-image
+                  src="../../../assets/cliente.gif"
+                  alt="Voluntario"
+                />
+                <mat-card-content>
+                  <p>
+                    Regístrate como voluntario para formar parte proyectos que necesitan tu ayuda y marcar una diferencia positiva en tu comunidad.
+                  </p>
+                </mat-card-content>
+              </mat-card>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>

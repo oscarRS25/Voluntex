@@ -20,7 +20,6 @@ class UsuarioRoutes{
         this.router.put('/:id', usuarioController.modificarUsuario);
         this.router.delete('/:id',verifyToken, usuarioController.eliminarUsuario);
         this.router.get('/password/:email',usuarioController.enviarEmailConfirmacion);
-        this.router.put('/password/:id/:email',usuarioController.cambiarContrasena);
         
         this.router.post('/validarEmailTel/',usuarioController.validarTelefonoEmail);
 

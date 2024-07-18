@@ -1,19 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
 body {
   background: linear-gradient(
     45deg,
     #1b263b 0%,
     #415a77 100%
-  ); /* Degradado diagonal de azul oscuro a azul metálico */
+  );
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* Hace que el fondo sea infinito */
 }
-html,
-body {
-  height: 100%;
-}
-body {
-  margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
-}
+
 
 /* Estilos del Toast q no sé por qué diablos no agarra así normal */
 .toast-center-center {
