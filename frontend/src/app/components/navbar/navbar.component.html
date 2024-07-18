@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg">
   <div class="container-fluid">
-    <a class="navbar-brand" href="/">
-      <img class="logo" src="https://www.bing.com/images/search?view=detailV2&ccid=PciuQ8kZ&id=0AB514E018B3BF805C793AAC5EACB0D7EB2D971A&thid=OIP.PciuQ8kZiUL3kQB7_F1PCgAAAA&mediaurl=https%3a%2f%2fwww.voluntare.org%2fwp-content%2fuploads%2f2018%2f10%2fpunto-voluntariado-logo.png&cdnurl=https%3a%2f%2fth.bing.com%2fth%2fid%2fR.3dc8ae43c9198942f791007bfc5d4f0a%3frik%3dGpct69ewrF6sOg%26pid%3dImgRaw%26r%3d0&exph=340&expw=400&q=VOLUNTARIADOS+LOGO&simid=608053136637967232&FORM=IRPRST&ck=BDD1DFBBECBC95F20C83D2BEC39464C6&selectedIndex=49&itb=1" alt="" />
+    <a class="navbar-brand" href="/" style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri,'Trebuchet MS', sans-serif;">
+      <img class="logo" src="../../../assets/logo.png" alt="Sin logo" style="height: 50px;"/>
       VOLUNTEX
     </a>
     <button
@@ -75,21 +75,10 @@
         <li class="nav-item" *ngIf="usuario == null">
           <a
             class="nav-link active"
-            href="/registrovol"
-            routerLink="/registrovol"
+            href="/registro"
+            routerLink="/registro"
             routerLinkActive="active-link"
-            >Registrarme como voluntario</a
-          >
-        </li>
-
-
-        <li class="nav-item" *ngIf="usuario == null">
-          <a
-            class="nav-link active"
-            href="/register"
-            routerLink="/register"
-            routerLinkActive="active-link"
-            >Registrar mi voluntariado</a
+            >Regístrate</a
           >
         </li>
         <li class="nav-item" *ngIf="rol != null">

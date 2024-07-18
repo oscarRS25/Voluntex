@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
@@ -33,7 +32,6 @@ export class ChangePasswordComponent implements OnInit{
   datoSesion: any;
 
   constructor(
-    private http: HttpClient,
     private usuarioService: UsuarioService,
     private router: Router,
     private toastr: ToastrService,

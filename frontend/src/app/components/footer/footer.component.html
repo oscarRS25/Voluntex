@@ -10,42 +10,24 @@
     <!-- Left -->
 
     <!-- Right -->
-  <!--<div>
-      <a
-        href="https://www.facebook.com/profile.php?id=61561170329044"
-        class="me-4 text-reset"
-      >
-        <img
-          src="https://cdn-icons-png.flaticon.com/256/20/20673.png"
-          alt="facebook"
-          style="max-width: 33px"
-        />
+    <div>
+      <a href="https://www.facebook.com/profile.php?id=61562791140419" class="me-4 text-reset">
+        <i class="fab fa-facebook-f"></i>
       </a>
-      <a href="https://x.com/AgendaJart56575" class="me-4 text-reset">
-        <img
-          src="https://cdn-icons-png.flaticon.com/512/81/81725.png"
-          alt="twitter"
-          style="max-width: 33px"
-        />
+      <a href="https://x.com/voluntex82546" class="me-4 text-reset">
+        <i class="fab fa-twitter"></i>
       </a>
-      <a href="https://www.instagram.com/ratapro77omg/" class="me-4 text-reset">
-        <img
-          src="https://cdn-icons-png.flaticon.com/512/87/87390.png"
-          alt="instagram"
-          style="max-width: 33px"
-        />
+      <a href="https://www.instagram.com/oscarrs_10/" class="me-4 text-reset">
+        <i class="fab fa-instagram"></i>
       </a>
-      <a
-        href="https://www.youtube.com/@rataascerosa7778"
-        class="me-4 text-reset"
-      >
-        <img
-          src="https://cdn-icons-png.flaticon.com/512/152/152810.png"
-          alt="youtube"
-          style="max-width: 33px"
-        />
+      <a href="https://www.youtube.com/channel/UC88rq_aY0OSCnypJjb10C3w" class="me-4 text-reset">
+        <i class="fab fa-youtube"></i>
       </a>
-    </div>-->
+      <a href="https://www.linkedin.com/in/voluntex-voluntex-712b50319/" class="me-4 text-reset">
+        <i class="fab fa-linkedin"></i>
+      </a>
+    </div>
+
     <!-- Right -->
   </section>
   <!-- Section: Social media -->
@@ -67,10 +49,13 @@
                   'Trebuchet MS', sans-serif;
               "
             >
-              <img class="logo" src="https://www.bing.com/images/search?view=detailV2&ccid=PciuQ8kZ&id=0AB514E018B3BF805C793AAC5EACB0D7EB2D971A&thid=OIP.PciuQ8kZiUL3kQB7_F1PCgAAAA&mediaurl=https%3a%2f%2fwww.voluntare.org%2fwp-content%2fuploads%2f2018%2f10%2fpunto-voluntariado-logo.png&cdnurl=https%3a%2f%2fth.bing.com%2fth%2fid%2fR.3dc8ae43c9198942f791007bfc5d4f0a%3frik%3dGpct69ewrF6sOg%26pid%3dImgRaw%26r%3d0&exph=340&expw=400&q=VOLUNTARIADOS+LOGO&simid=608053136637967232&FORM=IRPRST&ck=BDD1DFBBECBC95F20C83D2BEC39464C6&selectedIndex=49&itb=1" alt="" />
+              <img class="logo" src="../../../assets/logo.png" alt="" style="height: 50px"/>
               VOLUNTEX
             </a>
           </h6>
+          <p>
+            Juntos hacemos la diferencia. ¡Únete y transforma el mundo con tu voluntariado!
+          </p>
         </div>
         <!-- Grid column -->
 
@@ -78,15 +63,14 @@
         <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-2">
           <!-- Links -->
           <h6
-            class="text-uppercase fw-bold mb-2 dropdown-toggle"
+            class="text-uppercase fw-bold mb-2"
             id="infoDropdown"
-            data-bs-toggle="collapse"
             data-bs-target="#infoLinks"
             aria-expanded="false"
           >
             Información
           </h6>
-          <div id="infoLinks" class="collapse">
+          <div id="infoLinks">
             <p>
               <a href="/politica-privacidad" class="text-reset"
                 >Política de Privacidad</a
@@ -101,15 +85,14 @@
         <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-2">
           <!-- Links -->
           <h6
-            class="text-uppercase fw-bold mb-2 dropdown-toggle"
+            class="text-uppercase fw-bold mb-2"
             id="linksDropdown"
-            data-bs-toggle="collapse"
             data-bs-target="#linksMenu"
             aria-expanded="false"
           >
             Enlaces
           </h6>
-          <div id="linksMenu" class="collapse">
+          <div id="linksMenu">
             <p><a href="/" class="text-reset">Inicio</a></p>
             <p *ngIf="rol != 4 && rol != 3 && rol != null">
               <a href="/equipos-areas" class="text-reset">Equipos/Áreas</a>
@@ -124,8 +107,8 @@
               <a href="/login" class="text-reset">Inicio de Sesión</a>
             </p>
             <p *ngIf="rol == null">
-              <a href="/registro-empresa" class="text-reset"
-                >Registro de Empresa</a
+              <a href="/registro" class="text-reset"
+                >Registro</a
               >
             </p>
           </div>
@@ -136,17 +119,17 @@
         <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-2">
           <!-- Links -->
           <h6
-            class="text-uppercase fw-bold mb-2 dropdown-toggle"
+            class="text-uppercase fw-bold mb-2"
             id="contactDropdown"
-            data-bs-toggle="collapse"
             data-bs-target="#contactLinks"
             aria-expanded="false"
           >
             Contacto
           </h6>
-          <div id="contactLinks" class="collapse">
+          <div id="contactLinks">
             <p><i class="fas fa-home me-3"></i> Dolores Hidalgo, Gto, MX.</p>
-            <p><i class="fas fa-envelope me-3"></i> nayeli.com</p>
+            <p><i class="fas fa-envelope me-3"></i> {{'rojassanchezo63@gmail.com'}}</p>
+            <p><i class="fas fa-envelope me-3"></i> {{'nayelii.jaqui.p.v@gmail.com'}}</p>
             <p><i class="fas fa-phone me-3"></i> +55 468 6874542</p>
           </div>
         </div>

@@ -1,0 +1,180 @@
+/* General */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+#container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 30px 0;
+  padding: 10px;
+}
+
+.card {
+  display: flex;
+  width: 100%;
+  max-width: 900px;
+  flex-direction: column;
+  background-color: #f8fafc;
+  padding: 20px 30px;
+  border-radius: 8px;
+  gap: 30px;
+  box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.336);
+  animation: dark-to-light-background 0.3s ease-in-out;
+}
+
+/* Form Header */
+#card_header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#card_header h1 {
+  font-size: 40px;
+  position: relative;
+}
+
+#card_header h1::before {
+  position: absolute;
+  content: "";
+  width: 95%;
+  height: 3px;
+  background-color: #7ba4ad;
+  bottom: 4px;
+  border-radius: 5px;
+}
+
+.card-body {
+  margin-top: -15px;
+}
+
+mat-card {
+    padding: 5px;
+    margin: 15px;
+    border-radius: 8px;
+    box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.336);
+    animation: dark-to-light-background 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+mat-card:hover {
+  transform: scale(1.05);
+}
+
+h5,
+h6 {
+  color: #334463;
+}
+
+p {
+  text-align: justify;
+}
+
+img {
+  max-height: 150px;
+  height: max-content;
+}
+
+/* Estilos para el título de la página */
+.page-title {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 0;
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  animation: slideInTitle 1s ease-in-out;
+}
+
+.page-title h1 {
+  font-size: 2.5em;
+  color: #1b263b;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilos para las migas de pan */
+.breadcrumbs {
+  margin: 0;
+  padding: 10px;
+  background-color: #f8fafc;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  position: relative;
+  top: -10px;
+}
+
+.breadcrumbs a {
+  color: #1b263b;
+  text-decoration: none;
+  margin-right: 10px;
+  position: relative;
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.breadcrumbs a::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #273240; /* Azul */
+  transition: width 0.3s ease;
+}
+
+.breadcrumbs a:hover::after {
+  width: 100%;
+}
+
+.breadcrumbs a:hover {
+  color: #273240; /* Azul */
+}
+
+.breadcrumbs span {
+  color: #7ba4ad;
+}
+
+/* Animación */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInTitle {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.breadcrumbs a,
+.breadcrumbs span {
+  animation: fadeIn 2s ease-in-out, slideIn 1s ease-out;
+}

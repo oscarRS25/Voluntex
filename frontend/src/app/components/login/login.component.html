@@ -4,7 +4,6 @@
             <!-- FORM HEADER -->
             <div id="form_header">
                 <h1>Login</h1>
-                <i id="mode_icon" class="fa-solid fa-moon"></i>
             </div>
 
             <!-- INPUTS -->
@@ -41,25 +40,22 @@
                             >
                         </div>
                     </label>
-                    <!-- FORGOT PASSWORD -->
-                    <div class="links">
-                        <a href="/changePassword">
-                            ¿Olvidaste tu contraseña? recupérala aquí.
-                        </a>
-                    </div>
-
-                    <!-- NEW ACCOUNT -->
-                    <div class="links">
-                        <a href="/register">
-                            ¿Quiéres registrar tu empresa? hazlo auí.
-                        </a>
-                    </div>
                 </div>
             </div>
             <!-- LOGIN BUTTON -->
             <button type="submit" id="login_button" (click)="login()" [disabled]="isLoggingIn">
                 Login
             </button>
+            <!-- FORGOT PASSWORD -->
+            <div class="links" style="text-align: center; margin-top: -20px;">
+                <a href="/changePassword">
+                    ¿Olvidaste tu contraseña? recupérala aquí.
+                </a>
+                <br>
+                <a href="/registro">
+                    ¿Quiéres registrar tu empresa? hazlo auí.
+                </a>
+            </div>
         </form>
     </main>
 

@@ -3,10 +3,7 @@
     <div class="content-main slide-in">
       <div class="content-text">
         <div class="slogan">
-          <h2>Juntos hacemos la diferencia: ¡Únete y transforma el mundo con tu voluntariado</h2>
-        </div>
-        <div class="animated-text">
-          <h3 id="typing-text" class="typing-text">{{ typingText }}</h3>
+          <h2>Juntos hacemos la diferencia. ¡Únete y transforma el mundo con tu voluntariado!</h2>
         </div>
       </div>
     </div>
@@ -21,59 +18,62 @@
       <div class="card slide-in">
         <h3>Visión</h3>
         <p>
-          Ser la plataforma líder en conectar a voluntarios
-           con oportunidades que generen un impacto positivo, 
+          Ser la plataforma líder en conectar voluntarios
+           con actividades que generen un impacto positivo, 
            promoviendo una cultura de solidaridad y cooperación global.
         </p>
       </div>
       <div class="card slide-in">
         <h3>Valores</h3>
         <p>
-          Nuestros valores incluyen el compromiso, empatia,
-          colaboracion, integridad e innovacion
-      
+          Nuestros valores incluyen el compromiso, empatía,
+          colaboración, integridad e innovación
         </p>
       </div>
     </div>
 
-    <div class="cta-section slide-in">
-      <h3>¿Tienes una Empresa?</h3>
-      <p>
-        Regístrate ahora para gestionar y organizar los voluntariados que ofreces
-      </p>
-      <button class="cta-button" (click)="redirectToRegister()">
-        Registrar mi Empresa
-      </button>
-    </div>
-
-    <div class="social-follow slide-in">
-      <h3>Síguenos en redes sociales</h3>
-      <div class="social-links">
-        <a href="https://www.facebook.com/nayeli.padron.140">
+    <div class="row">
+      <div class="col-md-6">
+        <mat-card
+          class="mantenimiento"
+          appearance="outlined"
+          routerLink="/registrar-empresa"
+        >
+          <mat-card-header>
+            <h6>Empresa</h6>
+          </mat-card-header>
           <img
-            src="https://cdn-icons-png.flaticon.com/256/20/20673.png"
-            alt="Facebook"
+            mat-card-image
+            src="../../../assets/empresa.gif"
+            alt="Empresa"
           />
-        </a>
-        <a href="https://x.com/AgendaJart56575">
-          <img
-            src="https://cdn-icons-png.flaticon.com/512/81/81725.png"
-            alt="Twitter"
-          />
-        </a>
-        <a href="https://www.instagram.com/oscarrs_10/">
-          <img
-            src="https://cdn-icons-png.flaticon.com/512/87/87390.png"
-            alt="Instagram"
-          />
-        </a>
-        <a href="https://www.youtube.com/@milenio">
-          <img
-            src="https://cdn-icons-png.flaticon.com/512/152/152810.png"
-            alt="YouTube"
-          />
-        </a>
+          <mat-card-content>
+            <p>
+              Registra tu empresa para ofrecer oportunidades de voluntariado y colaborar en proyectos que impacten positivamente en la comunidad.
+            </p>
+          </mat-card-content>
+        </mat-card>
       </div>
-    </div>
+      <div class="col-md-6">
+        <mat-card
+          class="cliente"
+          appearance="outlined"
+          routerLink="/registrar-voluntario"
+        >
+          <mat-card-header>
+            <h6>Voluntario</h6>
+          </mat-card-header>
+          <img
+            mat-card-image
+            src="../../../assets/cliente.gif"
+            alt="Voluntario"
+          />
+          <mat-card-content>
+            <p>
+              Regístrate como voluntario para formar parte proyectos que necesitan tu ayuda y marcar una diferencia positiva en tu comunidad.
+            </p>
+          </mat-card-content>
+        </mat-card>
+      </div>
   </div>
 </div>

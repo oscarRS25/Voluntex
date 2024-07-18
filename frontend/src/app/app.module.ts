@@ -12,20 +12,21 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './components/login/login.component';
-import { RegisterComponent } from './components/register/register.component';
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
 import { NgxCaptchaModule } from 'ngx-captcha';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { ToastrModule } from 'ngx-toastr';
-import { FormsModule } from '@angular/forms';
-import { SesionComponent } from './components/sesion/sesion.component';
-import { AreasComponent } from './components/areas/areas.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
 import { TokenInterceptor } from './services/HttpInterceptor.service';
 import { PoliticaPrivacidadComponent } from './components/politica-privacidad/politica-privacidad.component';
 import { HomeComponent } from './components/home/home.component';
+import { RegistroEmpresaComponent } from './components/registro-empresa/registro-empresa.component';
+import { RegistroQuienComponent } from './components/registro-quien/registro-quien.component';
+import { RegistroVoluntarioComponent } from './components/registro-voluntario/registro-voluntario.component';
+import { VoluntariadosComponent } from './components/voluntariados/voluntariados.component';
 
 @NgModule({
   declarations: [
@@ -34,17 +35,18 @@ import { HomeComponent } from './components/home/home.component';
     FooterComponent,
     HomeComponent,
     LoginComponent,
-    RegisterComponent,
-   
+    RegistroEmpresaComponent,
+    RegistroVoluntarioComponent,
+    RegistroQuienComponent,
     ChangePasswordComponent,
-    SesionComponent,
-    AreasComponent,
     PoliticaPrivacidadComponent,
+    VoluntariadosComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     NgxCaptchaModule,
     MatCardModule,

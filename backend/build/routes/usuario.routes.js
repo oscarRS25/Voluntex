@@ -20,7 +20,6 @@ class UsuarioRoutes {
         this.router.put('/:id', usuario_controller_1.default.modificarUsuario);
         this.router.delete('/:id', auth_middleware_1.verifyToken, usuario_controller_1.default.eliminarUsuario);
         this.router.get('/password/:email', usuario_controller_1.default.enviarEmailConfirmacion);
-        this.router.put('/password/:id/:email', usuario_controller_1.default.cambiarContrasena);
         this.router.post('/validarEmailTel/', usuario_controller_1.default.validarTelefonoEmail);
         // Con token v1 pa registro y cambio de suscripción
         this.router.post('/inicio_sesion', usuario_controller_1.default.inicio_sesion);
