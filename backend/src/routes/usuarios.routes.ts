@@ -1,6 +1,6 @@
 import { Router } from "express";
 
-import usuarioController from "../controllers/usuario.controller";
+import usuarioController from "../controllers/usuarios.controller";
 import { verifyToken } from "../middlewares/auth.middleware";
 
 class UsuarioRoutes{
@@ -14,7 +14,6 @@ class UsuarioRoutes{
     config(): void {
         this.router.get('/',verifyToken, usuarioController.obtenerUsuarios);
         this.router.get('/:id',verifyToken, usuarioController.verUsuario);
-        this.router.get('/credenciales/:id',verifyToken, usuarioController.obtenerCredenciales);
         this.router.get('/getByEmail/:email',usuarioController.obtenerUsuarioEmail);
         this.router.post('/',usuarioController.registrarUsuario);
         this.router.put('/:id', usuarioController.modificarUsuario);
