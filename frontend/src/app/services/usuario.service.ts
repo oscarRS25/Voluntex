@@ -26,10 +26,6 @@ export class UsuarioService {
     return this.http.get<Usuario>(url);
   }
 
-  obtenerCredenciales(id_user: any){
-    return this.http.get(`${this.apiUrl}/credenciales/${id_user}`);
-  }
-
   enviarEmailConfirmacion(email: string): Observable<Object>{
     const url = `${this.apiUrl}/password/${email}`;
     return this.http.get<Object>(url);
@@ -54,20 +50,4 @@ export class UsuarioService {
   validarEmailTel(usuario: Usuario) {
     return this.http.post(`${this.apiUrl}/validarEmailTel`, usuario);
   }
-
-  /*addUsuario(usuario: Usuario): Observable<Usuario> {
-    return this.http.post<Usuario>(this.apiUrl, usuario);
-  }
-
-  updateUsuario(id: number, usuario: Usuario): Observable<Usuario> {
-    const url = `${this.apiUrl}/${id}`;
-    return this.http.put<Usuario>(url, usuario);
-  }
-
-  deleteUsuario(id: number): Observable<void> {
-    const url = `${this.apiUrl}/${id}`;
-    return this.http.delete<void>(url);
-  }*/
-
-
 }
