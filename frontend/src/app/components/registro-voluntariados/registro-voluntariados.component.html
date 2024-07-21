@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Voluntariado</title>
+    <link rel="stylesheet" href="registro-voluntariados.component.css">
+</head>
+<body>
+    <div id="container">
+      <form id="registro_form" (ngSubmit)="onSubmit()" #voluntariadoForm="ngForm">
+        <div id="form_header">
+          <h1>Registro de Voluntariado</h1>
+        </div>
+        <div id="inputs">
+          <div class="input-box">
+            <label for="titulo">Título</label>
+            <div class="input-field">
+              <input type="text" id="titulo" name="titulo" ngModel required>
+            </div>
+          </div>
+          <div class="input-box">
+            <label for="descripcion">Descripción</label>
+            <div class="input-field">
+              <input type="text" id="descripcion" name="descripcion" ngModel required>
+            </div>
+          </div>
+          <div class="input-box">
+            <label for="vacantes">Total de Vacantes</label>
+            <div class="input-field">
+              <input type="number" id="vacantes" name="vacantes" ngModel required>
+            </div>
+          </div>
+        </div>
+        <button type="submit" id="registro_button" [disabled]="!voluntariadoForm.valid">Registrar</button>
+      </form>
+    </div>
+</body>
+</html>
+

@@ -47,7 +47,7 @@
     content: '';
     width: 95%;
     height: 3px;
-    background-color: #7c3aed;
+    background-color: #004173;
     bottom: 4px;
     border-radius: 5px;
 }
@@ -71,7 +71,7 @@
     align-items: center;
     gap: 15px;
     padding: 3px;
-    border-bottom: 1px solid #7c3aed;
+    border-bottom: 1px solid #004173;
     cursor: text;
     margin: 0 10px 0 0;
 }
@@ -103,14 +103,14 @@
 }
 
 .links a:hover {
-    color: #7c3aed;
+    color: #004173;
 }
 
 /* Login Button */
 #register_button {
     border: none;
     margin-top: -10px;
-    background: linear-gradient(90deg, #7c3aed, #a855f7, #bf46ef);
+    background: linear-gradient(90deg,#004173, #0979b0,#0cb7f2);
     padding: 7px;
     border-radius: 3px;
     color: #f8fafc;

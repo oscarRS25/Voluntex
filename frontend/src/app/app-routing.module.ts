@@ -9,6 +9,7 @@ import { VoluntariadosComponent } from './components/voluntariados/voluntariados
 import { RegistroVoluntarioComponent } from './components/registro-voluntario/registro-voluntario.component';
 import { RegistroEmpresaComponent } from './components/registro-empresa/registro-empresa.component';
 import { RegistroQuienComponent } from './components/registro-quien/registro-quien.component';
+import { RegistroVoluntariadosComponent } from './components/registro-voluntariados/registro-voluntariados.component';
 
 const routes: Routes = [
   {
@@ -42,6 +43,10 @@ const routes: Routes = [
   {
     path: 'voluntariados',
    component: VoluntariadosComponent,
+  },
+  {
+    path: 'registro-voluntariados',
+    component: RegistroVoluntariadosComponent,
   },
   {
     path: 'notFound',

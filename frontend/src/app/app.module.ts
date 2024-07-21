@@ -27,7 +27,7 @@ import { RegistroEmpresaComponent } from './components/registro-empresa/registro
 import { RegistroQuienComponent } from './components/registro-quien/registro-quien.component';
 import { RegistroVoluntarioComponent } from './components/registro-voluntario/registro-voluntario.component';
 import { VoluntariadosComponent } from './components/voluntariados/voluntariados.component';
-
+import { RegistroVoluntariadosComponent } from './components/registro-voluntariados/registro-voluntariados.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,8 +39,10 @@ import { VoluntariadosComponent } from './components/voluntariados/voluntariados
     RegistroVoluntarioComponent,
     RegistroQuienComponent,
     ChangePasswordComponent,
+    RegistroVoluntariadosComponent,
     PoliticaPrivacidadComponent,
-    VoluntariadosComponent
+    VoluntariadosComponent,
+   
   ],
   imports: [
     BrowserModule,
