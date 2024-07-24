@@ -28,6 +28,14 @@ import { RegistroQuienComponent } from './components/registro-quien/registro-qui
 import { RegistroVoluntarioComponent } from './components/registro-voluntario/registro-voluntario.component';
 import { VoluntariadosComponent } from './components/voluntariados/voluntariados.component';
 import { RegistroVoluntariadosComponent } from './components/registro-voluntariados/registro-voluntariados.component';
+
+
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatButtonModule } from '@angular/material/button';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -57,6 +65,10 @@ import { RegistroVoluntariadosComponent } from './components/registro-voluntaria
     FormsModule,
     ToastrModule.forRoot(),
     MatDialogModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatFormFieldModule,
+    MatButtonModule,
   ],
   providers: [
     provideClientHydration(),
