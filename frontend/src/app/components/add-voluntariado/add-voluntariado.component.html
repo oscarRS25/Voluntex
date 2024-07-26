@@ -1,0 +1,205 @@
+<div class="body">
+    <main id="container">
+        <div class="card" style="padding: 20px;">
+        <div class="row">
+            <div class="col-md-6">
+                    <form [formGroup]="formulario" id="registerForm">
+                        <!-- FORM HEADER -->
+                        <div id="form_header">
+                          <h1>Voluntariado</h1>
+                        </div>
+                        
+                        <div class="section">
+                          <h5 style="margin-bottom: 5px; margin-top: -20px;">Ingrese los datos de su voluntariado</h5>
+                          
+                          <div id="inputs">
+                            <div class="input-row row">
+                              
+                              <!-- Título -->
+                              <div class="input-box col-md-12">
+                                <label for="titulo">
+                                  Título
+                                  <div class="input-field">
+                                    <i class="fa-solid fa-font"></i>
+                                    <input type="text" id="titulo" formControlName="titulo">
+                                  </div>
+                                  <div *ngIf="formulario.get('titulo')?.touched && formulario.get('titulo')?.invalid" class="alertas">
+                                    <small *ngIf="formulario.get('titulo')?.errors?.['required']"><i class="fa-solid fa-circle-exclamation"></i> Este campo es obligatorio</small>
+                                    <small *ngIf="formulario.get('titulo')?.errors?.['maxlength']"><i class="fa-solid fa-circle-exclamation"></i> Máximo 60 caracteres</small>
+                                  </div>
+                                </label>
+                              </div>
+                      
+                              <!-- Descripción -->
+                              <div class="input-box col-md-12">
+                                <label for="descripcion">
+                                  Descripción
+                                  <div class="input-field">
+                                    <i class="fa-solid fa-align-left"></i>
+                                    <textarea id="descripcion" formControlName="descripcion" rows="1"></textarea>
+                                  </div>
+                                  <div *ngIf="formulario.get('descripcion')?.touched && formulario.get('descripcion')?.invalid" class="alertas">
+                                    <small *ngIf="formulario.get('descripcion')?.errors?.['required']"><i class="fa-solid fa-circle-exclamation"></i> Este campo es obligatorio</small>
+                                    <small *ngIf="formulario.get('descripcion')?.errors?.['maxlength']"><i class="fa-solid fa-circle-exclamation"></i> Máximo 500 caracteres</small>
+                                  </div>
+                                </label>
+                              </div>
+
+                              <!-- País -->
+                              <div class="input-box col-md-12">
+                                <label for="pais">
+                                  País
+                                  <div class="input-field">
+                                    <i class="fa-solid fa-globe"></i>
+                                    <input type="text" id="pais" formControlName="pais">
+                                  </div>
+                                  <div *ngIf="formulario.get('pais')?.touched && formulario.get('pais')?.invalid" class="alertas">
+                                    <small *ngIf="formulario.get('pais')?.errors?.['required']"><i class="fa-solid fa-circle-exclamation"></i> Este campo es obligatorio</small>
+                                    <small *ngIf="formulario.get('pais')?.errors?.['maxlength']"><i class="fa-solid fa-circle-exclamation"></i> Máximo 45 caracteres</small>
+                                  </div>
+                                </label>
+                              </div>
+                      
+                              <!-- Estado -->
+                              <div class="input-box col-md-12">
+                                <label for="estado">
+                                  Estado
+                                  <div class="input-field">
+                                    <i class="fa-solid fa-map-marker-alt"></i>
+                                    <input type="text" id="estado" formControlName="estado">
+                                  </div>
+                                  <div *ngIf="formulario.get('estado')?.touched && formulario.get('estado')?.invalid" class="alertas">
+                                    <small *ngIf="formulario.get('estado')?.errors?.['required']"><i class="fa-solid fa-circle-exclamation"></i> Este campo es obligatorio</small>
+                                    <small *ngIf="formulario.get('estado')?.errors?.['maxlength']"><i class="fa-solid fa-circle-exclamation"></i> Máximo 45 caracteres</small>
+                                  </div>
+                                </label>
+                              </div>
+                      
+                              <!-- Ciudad -->
+                              <div class="input-box col-md-12">
+                                <label for="ciudad">
+                                  Ciudad
+                                  <div class="input-field">
+                                    <i class="fa-solid fa-city"></i>
+                                    <input type="text" id="ciudad" formControlName="ciudad">
+                                  </div>
+                                  <div *ngIf="formulario.get('ciudad')?.touched && formulario.get('ciudad')?.invalid" class="alertas">
+                                    <small *ngIf="formulario.get('ciudad')?.errors?.['required']"><i class="fa-solid fa-circle-exclamation"></i> Este campo es obligatorio</small>
+                                    <small *ngIf="formulario.get('ciudad')?.errors?.['maxlength']"><i class="fa-solid fa-circle-exclamation"></i> Máximo 45 caracteres</small>
+                                  </div>
+                                </label>
+                              </div>
+                      
+                              <!-- Cupo -->
+                              <div class="input-box col-md-12">
+                                <label for="cupo">
+                                  Cupo
+                                  <div class="input-field">
+                                    <i class="fa-solid fa-users"></i>
+                                    <input type="number" id="cupo" formControlName="cupo">
+                                  </div>
+                                  <div *ngIf="formulario.get('cupo')?.touched && formulario.get('cupo')?.invalid" class="alertas">
+                                    <small *ngIf="formulario.get('cupo')?.errors?.['required']"><i class="fa-solid fa-circle-exclamation"></i> Este campo es obligatorio</small>
+                                    <small *ngIf="formulario.get('cupo')?.errors?.['max']"><i class="fa-solid fa-circle-exclamation"></i> Máximo 9,999 cupos</small>
+                                    <small *ngIf="formulario.get('cupo')?.errors?.['nonZero'] && !formulario.get('cupo')?.errors?.['required']"><i class="fa-solid fa-circle-exclamation"></i> El valor debe ser mayor a 0</small>
+                                  </div>
+                                </label>
+                              </div>
+                      
+                              <!-- Costo -->
+                              <div class="input-box col-md-12">
+                                <label for="costo">
+                                  Costo
+                                  <div class="input-field">
+                                    <i class="fa-solid fa-dollar-sign"></i>
+                                    <input type="number" id="costo" formControlName="costo">
+                                  </div>
+                                  <div *ngIf="formulario.get('costo')?.touched && formulario.get('costo')?.invalid" class="alertas">
+                                    <small *ngIf="formulario.get('costo')?.errors?.['required']"><i class="fa-solid fa-circle-exclamation"></i> Este campo es obligatorio</small>
+                                    <small *ngIf="formulario.get('costo')?.errors?.['max']"><i class="fa-solid fa-circle-exclamation"></i> Costo máximo de $99,999</small>
+                                    <small *ngIf="formulario.get('costo')?.errors?.['nonNegative']"><i class="fa-solid fa-circle-exclamation"></i> El valor debe ser mayor o igual a 0</small>
+                                  </div>
+                                </label>
+                              </div>
+                      
+                              <!-- Fecha de Cierre -->
+                              <div class="input-box col-md-12">
+                                <label for="fechaCierre">
+                                  Fecha de cierre
+                                  <div class="input-field">
+                                    <i class="fa-solid fa-calendar-days"></i>
+                                    <input type="date" id="fechaCierre" formControlName="fechaCierre">
+                                  </div>
+                                  <div *ngIf="formulario.get('fechaCierre')?.invalid && formulario.get('fechaCierre')?.touched">
+                                    <small *ngIf="formulario.get('fechaCierre')?.errors?.['required']"><i class="fa-solid fa-circle-exclamation"></i> Fecha de cierre es requerida.</small>
+                                    <small *ngIf="formulario.get('fechaCierre')?.errors?.['fechaCierreInvalida'] && !formulario.get('fechaCierre')?.errors?.['required']"><i class="fa-solid fa-circle-exclamation"></i>La fecha de cierre debe ser posterior a la fecha actual.</small>
+                                  </div>
+                                </label>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                    </form>
+            </div>
+            <div class="col-md-6">
+                <div class="card vista-previa" style="height: 100%; padding: 20px">
+                    <div class="card-body" *ngIf="voluntariado" id="vista-previa">
+                        <h2>{{voluntariado.titulo}}</h2>
+                        <div class="card" *ngIf="voluntariado.descripcion != ''">
+                            {{ voluntariado.descripcion }}
+                        </div>
+                        <div class="row loc" *ngIf="voluntariado.pais != '' || voluntariado.ciudad != '' || voluntariado.estado != ''">
+                            <div class="col-md-4 center location">
+                                <i class="fa-solid fa-globe"></i>
+                                <br>
+                                {{ voluntariado.pais }}
+                            </div>
+                            <div class="col-md-4 center location">
+                                <i class="fa-solid fa-map-marker-alt"></i>
+                                <br>
+                                {{ voluntariado.estado }}
+                            </div>
+                            <div class="col-md-4 center location">
+                                <i class="fa-solid fa-city"></i>
+                                <br>
+                                {{ voluntariado.ciudad }}
+                            </div>
+                        </div>
+                        <div class="row ">
+                            <div class="col-md-4 center data disponible" *ngIf="voluntariado.fechaCierre != ''">
+                                <span>Estado</span>
+                                <br>
+                                <p class="disponible">Disponible</p>
+                            </div>
+                            <div class="col-md-4 center data fecha" *ngIf="voluntariado.fechaCierre != ''">
+                                <span>Fecha</span>
+                                <br>
+                                <p>{{fechaInicio | date}} / {{voluntariado.fechaCierre | date}} </p>
+                            </div>
+                            <div class="col-md-4 center data cupo" *ngIf="voluntariado.cupo">
+                                <span>Cupo</span>
+                                <br>
+                                <p>0 / {{voluntariado.cupo}}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 center data costo" *ngIf="voluntariado.costo">
+                                <span>Costo</span>
+                                <br>
+                                <p>$ {{voluntariado.costo}} MXN</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 center">
+                <button type="submit" id="register_button" class="btn btn-formulario" (click)="registrar()" [disabled]="formulario.invalid">
+                  Registrar voluntariado
+                </button>
+            </div>
+        </div>
+    </div>
+    </main>
+</div>

@@ -30,13 +30,13 @@ export class VoluntariadoService {
   }
 
   // Obtener un voluntariado específico
-  verVoluntariado(id: number): Observable<Voluntariado> {
+  verVoluntariado(id: any): Observable<Voluntariado> {
     const url = `${this.apiUrl}/ver/${id}`;
     return this.http.get<Voluntariado>(url);
   }
 
   // Registrar un nuevo voluntariado
-  registrarVoluntariado(voluntariado: Voluntariado): Observable<Object> {
+  registrarVoluntariado(voluntariado: any): Observable<Object> {
     return this.http.post(this.apiUrl, voluntariado);
   }
 

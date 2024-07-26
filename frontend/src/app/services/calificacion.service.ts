@@ -12,16 +12,22 @@ export class CalificacionService {
 
   constructor(private http: HttpClient) { }
 
-  // Obtener calificaciones para un voluntariado específico y un voluntario específico
-  obtenerCalificaciones(fkVoluntariado: number, fkVoluntario: number): Observable<Calificacion[]> {
-    const url = `${this.apiUrl}/${fkVoluntariado}/${fkVoluntario}`;
+  // Obtener el promedio de calificaciones para un voluntariado específico
+  obtenerPromedio(fkVoluntariado: any): Observable<{ promedio: number }> {
+    const url = `${this.apiUrl}/promedio/${fkVoluntariado}`;
+    return this.http.get<{ promedio: number }>(url);
+  }
+
+  // Obtener calificaciones para un voluntariado específico excluyendo la propia
+  obtenerCalificaciones(fkVoluntariado: any, fkVoluntario: any): Observable<Calificacion[]> {
+    const url = `${this.apiUrl}/todas/${fkVoluntariado}/${fkVoluntario}`;
     return this.http.get<Calificacion[]>(url);
   }
 
-  // Obtener el promedio de calificaciones para un voluntariado específico
-  obtenerPromedio(fkVoluntariado: number): Observable<{ promedio: number }> {
-    const url = `${this.apiUrl}/promedio/${fkVoluntariado}`;
-    return this.http.get<{ promedio: number }>(url);
+  // Obtener calificaciones para un voluntariado específico y un voluntario específico
+  obtenerMiCalificacion(fkVoluntariado: any, fkVoluntario: any): Observable<Calificacion> {
+    const url = `${this.apiUrl}/obtener/mia/${fkVoluntariado}/${fkVoluntario}`;
+    return this.http.get<Calificacion>(url);
   }
 
   // Registrar una nueva calificación

@@ -7,14 +7,20 @@ class CalificacionController{
   // GET
   public async obtenerCalificaciones (req: Request, res: Response){
     const { fkVoluntariado, fkVoluntario } = req.params
-    const calificaciones = await pool.query('Select c.*, u.nombre, u.apePat, u.apeMat from calificaciones as c INNER JOIN usuarios as u ON c.fkVoluntario = u.id WHERE fkVoluntariado = ? ORDER BY (CASE WHEN c.fkVoluntario = ? THEN 0 ELSE 1 END), c.fecha DESC;',[fkVoluntariado, fkVoluntario]);
+    const calificaciones = await pool.query('SELECT c.*, u.nombre, u.apePat, u.apeMat FROM calificaciones AS c INNER JOIN usuarios AS u ON c.fkVoluntario = u.id WHERE fkVoluntariado = ? AND c.fkVoluntario != ? ORDER BY c.fecha DESC;',[fkVoluntariado, fkVoluntario]);
     res.json(calificaciones);
+  }
+
+  public async obtenerMiCalificacion (req: Request, res: Response){
+    const { fkVoluntariado, fkVoluntario } = req.params
+    const calificacion = await pool.query('Select c.*, u.nombre, u.apePat, u.apeMat from calificaciones as c INNER JOIN usuarios as u ON c.fkVoluntario = u.id WHERE c.fkVoluntariado = ? AND c.fkVoluntario = ?',[fkVoluntariado, fkVoluntario]);
+    res.json(calificacion[0]);
   }
 
   public async obtenerPromedio(req: Request, res: Response): Promise<void> {
     try {
       const { fkVoluntariado } = req.params;
-      const result = await pool.query('SELECT AVG(calificacion) AS promedio FROM calificaciones WHERE fkVoluntariado = ?', [fkVoluntariado]);
+      const result = await pool.query('SELECT ROUND(AVG(calificacion), 0) AS promedio FROM calificaciones WHERE fkVoluntariado = ?', [fkVoluntariado]);
       
       // Accede al valor del promedio
       const promedio = result[0].promedio;

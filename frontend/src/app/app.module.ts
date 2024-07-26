@@ -27,14 +27,10 @@ import { RegistroEmpresaComponent } from './components/registro-empresa/registro
 import { RegistroQuienComponent } from './components/registro-quien/registro-quien.component';
 import { RegistroVoluntarioComponent } from './components/registro-voluntario/registro-voluntario.component';
 import { VoluntariadosComponent } from './components/voluntariados/voluntariados.component';
-import { RegistroVoluntariadosComponent } from './components/registro-voluntariados/registro-voluntariados.component';
-
-
-import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatNativeDateModule } from '@angular/material/core';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatButtonModule } from '@angular/material/button';
-
+import { AddVoluntariadoComponent } from './components/add-voluntariado/add-voluntariado.component';
+import { CommonModule } from '@angular/common';
+import { VerVoluntariadoComponent } from './components/ver-voluntariado/ver-voluntariado.component';
+import { StarRatingComponent } from './components/star-rating/star-rating.component';
 
 @NgModule({
   declarations: [
@@ -47,10 +43,11 @@ import { MatButtonModule } from '@angular/material/button';
     RegistroVoluntarioComponent,
     RegistroQuienComponent,
     ChangePasswordComponent,
-    RegistroVoluntariadosComponent,
     PoliticaPrivacidadComponent,
     VoluntariadosComponent,
-   
+    AddVoluntariadoComponent,
+    VerVoluntariadoComponent,
+    StarRatingComponent,
   ],
   imports: [
     BrowserModule,
@@ -65,10 +62,7 @@ import { MatButtonModule } from '@angular/material/button';
     FormsModule,
     ToastrModule.forRoot(),
     MatDialogModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    MatFormFieldModule,
-    MatButtonModule,
+    CommonModule
   ],
   providers: [
     provideClientHydration(),

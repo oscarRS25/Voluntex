@@ -18,6 +18,12 @@ export class RegistroService {
     return this.http.get<Registro[]>(url);
   }
 
+  // Validar si un voluntario está registrado en un voluntariado específico
+  validarVoluntarioRegistrado(fkVoluntariado: number, fkVoluntario: number): Observable<any> {
+    const url = `${this.apiUrl}/${fkVoluntariado}/${fkVoluntario}`;
+    return this.http.get<any>(url);
+  }
+
   // Registrar un nuevo voluntario
   registrarVoluntario(registro: Registro): Observable<Object> {
     const url = `${this.apiUrl}/registrar`;

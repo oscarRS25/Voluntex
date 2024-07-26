@@ -17,6 +17,29 @@ body {
 }
 
 
+.btn-formulario {
+  border: none;
+  margin-top: -10px;
+  background: linear-gradient(90deg, #004173,#066fb9);
+  padding: 7px 20px 7px 20px;
+  border-radius: 3px;
+  color: #f8fafc;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.btn-formulario:hover {
+  background: linear-gradient(90deg, #004173da,#066eb9e7);
+  color: #f8fafc;
+}
+
+.btn-formulario:disabled {
+  background: linear-gradient(90deg, #004173da,#066eb9e7);
+  color: #f8fafc;
+}
+
+
 /* Estilos del Toast q no sé por qué diablos no agarra así normal */
 .toast-center-center {
   top: 50%;

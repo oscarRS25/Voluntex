@@ -40,7 +40,7 @@ class VoluntariadoController {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
             const voluntariado = yield connection_1.default.query('SELECT v.*, u.nomEmpresa, u.email, u.telefono FROM voluntariados as v INNER JOIN usuarios as u on v.fkEmpresa = u.id WHERE v.id = ?;', [id]);
-            res.json(voluntariado);
+            res.json(voluntariado[0]);
         });
     }
     registrarVoluntariado(req, res) {
@@ -95,8 +95,7 @@ class VoluntariadoController {
                     res.status(404).json({ message: 'Voluntariado no encontrado' });
                     return;
                 }
-                const { ingresos } = result[0];
-                if (ingresos !== 0) {
+                if (result.ingresos != 0) {
                     res.status(400).json({ message: 'No se puede eliminar el voluntariado porque ya tiene voluntarios registrados' });
                     return;
                 }

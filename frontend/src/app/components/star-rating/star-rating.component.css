@@ -1,0 +1,7 @@
+.star-rating {
+    font-size: 1.3em; /* Tamaño de las estrellas */
+    color: gold; /* Color de las estrellas */
+}
+.fa-star, .fa-star-half-stroke{
+    margin: 0 2px; /* Espaciado entre estrellas */
+}

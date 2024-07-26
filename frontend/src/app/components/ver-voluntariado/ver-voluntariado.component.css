@@ -1,0 +1,251 @@
+#container {
+    height: auto;
+    min-height: 70vh;
+    width: 100%;
+    margin: 30px 0;
+    padding: 20px;
+}
+
+.vista-previa {
+    width: 100%;
+    flex-direction: column;
+    border-radius: 8px;
+    box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.336);
+    animation: dark-to-light-background 0.3s ease-in-out;
+}
+
+
+/* Vista previa */
+#vista-previa h2{
+    text-align: center;
+    color: #25344e;
+}
+
+#vista-previa .descripcion{
+    background-color: #4e689934;
+    padding: 15px;
+    font-size: 18px;
+    text-align: justify;
+    margin-bottom: 20px;
+}
+
+#vista-previa .loc{
+    margin: 0 20px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px; /* Bordes redondeados de 10px */
+    padding: 5px; /* Espaciado interno */
+}
+
+.row .center{
+    text-align: center;
+}
+
+#vista-previa .row .location{
+    background-color: #25344e;
+    color: #fff;
+    padding: 10px;
+}
+
+#vista-previa .row .location i{
+    font-size: 30px;
+}
+
+#vista-previa .row .data span{
+    font-weight: bold;
+    color: #25344e;
+}
+
+#vista-previa .row .data p{
+    display: inline-block; /* Permite agregar padding y background */
+    color: white; /* Color del texto */
+    padding: 3px 10px; /* Espaciado interno */
+    border-radius: 5px; /* Bordes redondeados */
+}
+
+.disponible{
+    background-color: #58b164; /* Color de fondo */
+}
+
+.cerrado{
+    background-color: #b44444; /* Color de fondo */
+}
+
+.fecha p{
+    background-color: #96b158; /* Color de fondo */
+}
+
+.costo p{
+    background-color: #a09e27;
+}
+
+.contacto{
+    background-color: #d0daa4;
+    margin: 0px 30px;
+    padding: 20px 20px 0px 20px;
+}
+
+.info-titulo{
+    text-align: center;    
+}
+
+.calificaciones, .lista-voluntarios, .acciones-voluntario, .acciones-empresa{
+    padding: 30px;
+}
+
+/* Acciones */
+.acciones{
+    text-align: center;
+}
+
+.btn-formulario{
+    margin: 5px;
+}
+
+.btn-cerrar{
+    background: linear-gradient(90deg, #614e1b, #836b28);
+}
+
+.btn-cerrar:hover, .btn-cerrar:disabled{
+    background: linear-gradient(90deg, #614e1bd5, #836b28d5);
+}
+
+.btn-eliminar{
+    background: linear-gradient(90deg, #812424, #9e3535);
+}
+
+.btn-eliminar:hover, .btn-eliminar:disabled{
+    background: linear-gradient(90deg, #812424dc, #9e3535e3);
+}
+
+.btn-inscribir{
+    background: linear-gradient(90deg, #4e0a75,#8848ad);
+}
+
+.btn-inscribir:hover, .btn-inscribir:disabled{
+    background: linear-gradient(90deg, #4e0a75c4,#8848add3);
+}
+
+/* Estilo adicional para iconos dentro de los botones */
+.btn-custom i {
+    margin-right: 8px;
+}
+
+
+/* Tabla de registrados */
+th{
+    background-color: #25344e;
+    color: #fff;
+    text-align: justify;
+}
+td{
+    text-align: justify;
+}
+
+
+/* Formulario y calificaciones */
+.registrar{
+    padding: 20px;
+}
+
+#form_header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#form_header h3 {
+    position: relative;
+    margin-bottom: 10px;
+}
+
+#form_header h3::before {
+    position: absolute;
+    content: '';
+    width: 95%;
+    height: 3px;
+    background-color: #004173;
+    bottom: 4px;
+    border-radius: 5px;
+}
+
+/* Campos */
+.campos .campo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.input-box>label {
+    color: #797984
+}
+
+.input-field {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 3px;
+    border-bottom: 1px solid #004173;
+    cursor: text;
+    margin: 0 10px 0 0;
+}
+
+.input-field i {
+    font-size: 18px;
+    cursor: text;
+    color: #000;
+} 
+
+.input-field input, textarea, select {
+    border: none;
+    background-color: transparent;
+    padding: 0px 5px;
+    width: 175px;
+}
+
+.input-field input:focus, textarea:focus, select:focus {
+    outline: none;
+}
+
+small{
+    color: rgb(209, 36, 36);
+}
+
+.alertas{
+    max-width: 250px;
+}
+
+/* Estilos básicos para calificaciones */
+.mi-calificacion {
+    background-color: #d0daa4a2;
+    margin-bottom: 20px;
+}
+  
+.mi-calificacion .card-title {
+    margin: 0;
+}
+  
+.card-date {
+    font-size: 0.9em;
+    color: #666;
+}
+
+.card-rating {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.califs{
+    margin-bottom: 20px;
+    background-color: #f0f3e2;
+}
+  
+.star-rating {
+    font-size: 1.3em; /* Tamaño de las estrellas */
+    color: gold; /* Color de las estrellas */
+}
+.fa-star, .fa-star-half-stroke{
+    margin: 0 2px; /* Espaciado entre estrellas */
+}
