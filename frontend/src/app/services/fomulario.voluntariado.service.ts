@@ -5,6 +5,8 @@ import { Voluntariado } from '../models/voluntariado.interface';
 @Injectable({
   providedIn: 'root'
 })
+
+// Observer
 export class FormularioVoluntariadoService {
   private voluntariadoSubject = new BehaviorSubject<Voluntariado | null>(null);
   voluntariado$ = this.voluntariadoSubject.asObservable();
