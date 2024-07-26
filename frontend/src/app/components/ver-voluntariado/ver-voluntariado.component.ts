@@ -12,6 +12,7 @@ import { RegistroService } from '../../services/registro.service';
 import Swal from 'sweetalert2';
 import { Registro } from '../../models/registro.interface';
 import { forkJoin } from 'rxjs';
+import { VoluntariadoMediatorService } from '../../services/voluntariado.mediator.service';
 
 @Component({
   selector: 'app-ver-voluntariado',
@@ -49,6 +50,7 @@ export class VerVoluntariadoComponent implements OnInit {
     private datePipe: DatePipe,
     private toastr: ToastrService,
     private fb: FormBuilder,
+    private voluntariadoMediatorService: VoluntariadoMediatorService,
   ) {
     this.regComentario = this.fb.group({
       calificacion: [1, [Validators.required]],
@@ -184,16 +186,18 @@ export class VerVoluntariadoComponent implements OnInit {
     });
   }
 
-  inscribirse(){
-    this.newRegistro.fechaReg = this.nuevaFecha()
+  inscribirse() {
+    this.newRegistro.fechaReg = this.nuevaFecha();
     this.newRegistro.fkVoluntariado = this.voluntariado.id;
     this.newRegistro.fkVoluntario = this.id;
-    this.registroService.registrarVoluntario(this.newRegistro).subscribe(res =>{
-      this.toastr.success('Ha sido inscrito a su nuevo voluntariado','¡Felicidades!',{ timeOut: 5000 });
+    this.registroService.registrarVoluntario(this.newRegistro).subscribe(res => {
+      this.toastr.success('Ha sido inscrito a su nuevo voluntariado', '¡Felicidades!', { timeOut: 5000 });
+      this.voluntariado.ingresos += 1; // Actualiza localmente
+      this.voluntariadoMediatorService.updateVoluntariado(this.voluntariado); // Notifica
       this.ngOnInit()
-    },err =>{
+    }, err => {
       this.toastr.error('No se ha podido inscribir al voluntariado, puede que el cupo haya sido llenado', 'Error', { timeOut: 5000 });
-    })
+    });
   }
 
   getStars(calificacion: number): number[] {
