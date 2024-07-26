@@ -19,15 +19,22 @@ class CalificacionController {
     obtenerCalificaciones(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { fkVoluntariado, fkVoluntario } = req.params;
-            const calificaciones = yield connection_1.default.query('Select c.*, u.nombre, u.apePat, u.apeMat from calificaciones as c INNER JOIN usuarios as u ON c.fkVoluntario = u.id WHERE fkVoluntariado = ? ORDER BY (CASE WHEN c.fkVoluntario = ? THEN 0 ELSE 1 END), c.fecha DESC;', [fkVoluntariado, fkVoluntario]);
+            const calificaciones = yield connection_1.default.query('SELECT c.*, u.nombre, u.apePat, u.apeMat FROM calificaciones AS c INNER JOIN usuarios AS u ON c.fkVoluntario = u.id WHERE fkVoluntariado = ? AND c.fkVoluntario != ? ORDER BY c.fecha DESC;', [fkVoluntariado, fkVoluntario]);
             res.json(calificaciones);
+        });
+    }
+    obtenerMiCalificacion(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const { fkVoluntariado, fkVoluntario } = req.params;
+            const calificacion = yield connection_1.default.query('Select c.*, u.nombre, u.apePat, u.apeMat from calificaciones as c INNER JOIN usuarios as u ON c.fkVoluntario = u.id WHERE c.fkVoluntariado = ? AND c.fkVoluntario = ?', [fkVoluntariado, fkVoluntario]);
+            res.json(calificacion[0]);
         });
     }
     obtenerPromedio(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const { fkVoluntariado } = req.params;
-                const result = yield connection_1.default.query('SELECT AVG(calificacion) AS promedio FROM calificaciones WHERE fkVoluntariado = ?', [fkVoluntariado]);
+                const result = yield connection_1.default.query('SELECT ROUND(AVG(calificacion), 0) AS promedio FROM calificaciones WHERE fkVoluntariado = ?', [fkVoluntariado]);
                 // Accede al valor del promedio
                 const promedio = result[0].promedio;
                 // Enviar solo el valor del promedio

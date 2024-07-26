@@ -12,6 +12,7 @@ class RegistroRoutes {
     config(): void {
         // GET
         this.router.get('/:fkVoluntariado/', verifyToken, registroController.obtenerVoluntariosRegistrados);
+        this.router.get('/:fkVoluntariado/:fkVoluntario',verifyToken, registroController.validarVoluntarioRegistrado);
 
         // POST
         this.router.post('/registrar', verifyToken, registroController.registrarVoluntario);

@@ -1,103 +1,30 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Voluntariados</title>
-    <link rel="stylesheet" href="voluntariados.component.css">
-</head>
-<body>
-    <header>
-        <h1>Oportunidades de Voluntariado</h1>
-    </header>
-    <main>
-        <div class="voluntariado">
-            <h2>Voluntariado en Refugio de Animales</h2>
-            <p>Ayuda a cuidar y encontrar hogar para animales abandonados.</p>
-            <div class="rating">
-                <span>★★★★☆</span>
+<div class="contenedor">
+    <div class="card titulo">
+        <div class="row">
+            <div class="col-md-7">
+                <h2 *ngIf="rol == 2 && vistaVoluntariados">Voluntariados que se ofrecen</h2>
+                <h2 *ngIf="rol == 2 && !vistaVoluntariados">Voluntariados en los que estás inscrito</h2>
+                <h2 *ngIf="rol == 1"> Tus voluntariados</h2>
             </div>
-            <button>Más información</button>
-        </div>
-        <div class="voluntariado">
-            <h2>Voluntariado en Comedor Comunitario</h2>
-            <p>Colabora en la preparación y distribución de alimentos a personas necesitadas.</p>
-            <div class="rating">
-                <span>★★★★★</span>
+            <div class="col-md-5" style="text-align: end;">
+                <button class="btn btn-formulario btn-todos" *ngIf="rol == 2" [disabled]="vistaVoluntariados" (click)="obtenerTodos()">Ver todos</button>
+                <button class="btn btn-formulario btn-inscrito" *ngIf="rol == 2" [disabled]="!vistaVoluntariados" (click)="obtenerInscritos()">Ver mis voluntariados</button>
+                <button class="btn btn-formulario btn-nuevo" *ngIf="rol == 1" routerLink="/registrar-voluntariado">Agregar voluntariado</button>
             </div>
-            <button>Más información</button>
         </div>
-        <div class="voluntariado">
-            <h2>Voluntariado en Limpieza de Playas</h2>
-            <p>Participa en actividades de limpieza y conservación de playas.</p>
-            <div class="rating">
-                <span>★★★☆☆</span>
-            </div>
-            <button>Más información</button>
-        </div>
-        <div class="voluntariado">
-            <h2>Voluntariado en Asistencia Educativa</h2>
-            <p>Apoya a niños y jóvenes en sus estudios y actividades extracurriculares.</p>
-            <div class="rating">
-                <span>★★★★☆</span>
-            </div>
-            <button>Más información</button>
-        </div>
+    </div>
 
-        <div class="voluntariado">
-            <h2>Voluntariado en Refugio de Animales</h2>
-            <p>Ayuda a cuidar y encontrar hogar para animales abandonados.</p>
-            <div class="rating">
-                <span>★★★★☆</span>
+    <div class="row">
+        <div class="col-md-4" *ngFor="let voluntariado of voluntariados">
+            <div class="card voluntariado">
+                <h4>{{voluntariado.titulo}}</h4>
+                <p class="descripcion">{{voluntariado.descripcion}}</p>
+                <p class="direccion"><i class="fa-solid fa-location-dot"></i> {{voluntariado.ciudad}}, {{voluntariado.estado}}, {{voluntariado.pais}}</p>
+                <p class="fecha"><i class="fa-solid fa-calendar-days"></i> {{voluntariado.fechaInicio | date}} / {{voluntariado.fechaCierre | date}}</p>
+                <p class="estatus cerrado" *ngIf="voluntariado.estatus == 1 || voluntariado.ingresos >= voluntariado.cupo"><i class="fa-solid fa-lock"></i> Cerrado</p>
+                <p class="estatus disponible" *ngIf="voluntariado.estatus != 1 && voluntariado.ingresos < voluntariado.cupo"><i class="fa-solid fa-unlock"></i> Disponible</p>
+                <button class="btn btn-formulario" style="margin-top: 0px;" routerLink="/voluntariado/{{voluntariado.id}}">Más información</button>
             </div>
-            <button>Más información</button>
         </div>
-
-        <div class="voluntariado">
-            <h2>Voluntariado en Refugio de Animales</h2>
-            <p>Ayuda a cuidar y encontrar hogar para animales abandonados.</p>
-            <div class="rating">
-                <span>★★★★☆</span>
-            </div>
-            <button>Más información</button>
-        </div>
-
-        <div class="voluntariado">
-            <h2>Voluntariado en Refugio de Animales</h2>
-            <p>Ayuda a cuidar y encontrar hogar para animales abandonados.</p>
-            <div class="rating">
-                <span>★★★★☆</span>
-            </div>
-            <button>Más información</button>
-        </div>
-
-        <div class="voluntariado">
-            <h2>Voluntariado en Refugio de Animales</h2>
-            <p>Ayuda a cuidar y encontrar hogar para animales abandonados.</p>
-            <div class="rating">
-                <span>★★★★☆</span>
-            </div>
-            <button>Más información</button>
-        </div>
-
-        <div class="voluntariado">
-            <h2>Voluntariado en Refugio de Animales</h2>
-            <p>Ayuda a cuidar y encontrar hogar para animales abandonados.</p>
-            <div class="rating">
-                <span>★★★★☆</span>
-            </div>
-            <button>Más información</button>
-        </div>
-
-        <div class="voluntariado">
-            <h2>Voluntariado en Refugio de Animales</h2>
-            <p>Ayuda a cuidar y encontrar hogar para animales abandonados.</p>
-            <div class="rating">
-                <span>★★★★☆</span>
-            </div>
-            <button>Más información</button>
-        </div>
-    </main>
-   
-</body>
-</html>
+    </div>
+</div>

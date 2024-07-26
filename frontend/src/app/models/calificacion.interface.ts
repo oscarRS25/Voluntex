@@ -3,5 +3,5 @@ export interface Calificacion {
     fecha?: any;
     descripcion?: string;
     fkVoluntariado?: number;
-    fkVoluntario: number;
+    fkVoluntario?: number;
 }

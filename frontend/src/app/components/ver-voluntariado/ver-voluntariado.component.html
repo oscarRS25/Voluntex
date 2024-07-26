@@ -1,0 +1,264 @@
+<div class="body">
+    <main id="container">
+        <div class="card vista-previa" style="height: 100%; padding: 20px">
+            <div class="card-body" id="vista-previa">
+                <h2>{{voluntariado.titulo}}</h2>
+                <div class="card descripcion">
+                    {{ voluntariado.descripcion }}
+                </div>
+                <div class="row loc">
+                    <div class="col-md-4 center location">
+                        <i class="fa-solid fa-globe"></i>
+                        <br>
+                        {{ voluntariado.pais }}
+                    </div>
+                    <div class="col-md-4 center location">
+                        <i class="fa-solid fa-map-marker-alt"></i>
+                        <br>
+                        {{ voluntariado.estado }}
+                    </div>
+                    <div class="col-md-4 center location">
+                        <i class="fa-solid fa-city"></i>
+                        <br>
+                        {{ voluntariado.ciudad }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="row ">
+                            <div class="col-md-4 center data estatus">
+                                <span>Estado</span>
+                                <br>
+                                <p class="disponible" *ngIf="voluntariado.estatus == 0 && (voluntariado.ingresos !== undefined && voluntariado.cupo !== undefined && voluntariado.ingresos < this.voluntariado.cupo)">Disponible</p>
+                                <p class="cerrado" *ngIf="voluntariado.estatus == 1 || (voluntariado.ingresos !== undefined && voluntariado.cupo !== undefined && voluntariado.ingresos >= this.voluntariado.cupo)">Cerrado</p>
+                            </div>                   
+                            <div class="col-md-4 center data fecha">
+                                <span>Fecha</span>
+                                <br>
+                                <p>{{voluntariado.fechaInicio }} / {{voluntariado.fechaCierre }} </p>
+                            </div>
+                            <div class="col-md-4 center data cupo">
+                                <span>Cupo</span>
+                                <br>
+                                <p [ngClass]="{
+                                    'disponible': (voluntariado.ingresos !== undefined && voluntariado.cupo !== undefined && voluntariado.ingresos < this.voluntariado.cupo),
+                                    'cerrado':(voluntariado.ingresos !== undefined && voluntariado.cupo !== undefined && voluntariado.ingresos >= this.voluntariado.cupo)
+                                }">
+                                  {{voluntariado.ingresos}} / {{voluntariado.cupo}}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 center data costo">
+                                <span>Costo</span>
+                                <br>
+                                <p>$ {{voluntariado.costo}} MXN</p>
+                            </div>
+                            <div class="col-md-6 center data">
+                                <span>Calificacion</span>
+                                <br>
+                                <div class="star-rating" *ngIf="promedio">
+                                    <ng-container *ngFor="let star of getStars(promedio)">
+                                        <i class="fa-solid fa-star"></i>
+                                    </ng-container>
+                                    <ng-container *ngFor="let star of getStars(5 - promedio)">
+                                        <i class="fa-regular fa-star"></i>
+                                    </ng-container>
+                                </div>
+                                <div class="star-rating" *ngIf="!promedio">
+                                    <ng-container *ngFor="let star of getStars(5)">
+                                        <i class="fa-regular fa-star"></i>
+                                    </ng-container>
+                                </div>
+                                <p *ngIf="promedio != null" style="color: black;">{{promedio}}</p>
+                                <p *ngIf="promedio == null || promedio == undefined" style="color: black;">Sin calificaciones</p>
+                            </div>
+                        </div>     
+                    </div>
+                    <div class="col-md-4">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="card contacto">
+                                        <div class="info-titulo">
+                                            <h5><strong>Infromación de contacto</strong></h5>
+                                        </div>
+                                        <div class="info-contenido">
+                                            <p><i class="fa-solid fa-building"></i> <strong> Empresa:</strong> {{voluntariado.nomEmpresa}}</p>
+                                            <p><i class="fa-solid fa-envelope"></i> <strong> Email:</strong> {{voluntariado.email}}</p>
+                                            <p><i class="fa-solid fa-phone"></i> <strong> Teléfono:</strong> {{voluntariado.telefono}}</p>
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Acciones para una empresa -->
+                <div class="row acciones-empresa" *ngIf="rol == 1 && id == voluntariado.fkEmpresa" style="margin-bottom: -30px;">
+                    <div class="col-md-12">
+                        <h5>Acciones</h5>
+                        <div class="acciones">
+                            <button class="btn btn-formulario btn-cerrar" [disabled]="voluntariado.estatus == 1" (click)="cerrarVoluntariado()"><i class="fa-solid fa-house-lock"></i> Cerrar</button>
+                            <button class="btn btn-formulario btn-eliminar" [disabled]="voluntariado.ingresos > 0 || voluntariado.estatus == 1" (click)="eliminarVoluntariado()"><i class="fa-solid fa-trash"></i> Eliminar</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Acciones para un voluntario -->
+                <div class="row acciones-voluntario" *ngIf="rol == 2" style="margin-bottom: -30px;">
+                    <div class="col-md-12">
+                        <h5>Acciones</h5>
+                        <div class="acciones">
+                            <button class="btn btn-formulario btn-inscribir" [disabled]="voluntariado.estatus == 1 || voluntariado.cupo <= voluntariado.ingresos || voluntarioRegistrado == true" (click)="inscribirse()"><i class="fa-solid fa-door-open"></i> Inscribirme</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DONE -->
+                <div class="row lista-voluntarios" *ngIf="registrados.length > 0" style="margin-bottom: -40px;">
+                    <div class="col md 12">
+                        <h5>Voluntarios registrados</h5>
+                        <div class="table-responsive">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Voluntario</th>
+                                        <th>Email</th>
+                                        <th>Teléfono</th>
+                                        <th>Fecha de Registro</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let voluntario of registrados">
+                                        <td>{{ voluntario.nombre }} {{voluntario.apePat}} {{voluntario.apeMat}}</td>
+                                        <td>{{ voluntario.email }}</td>
+                                        <td>{{ voluntario.telefono }}</td>
+                                        <td>{{ voluntario.fechaReg | date: 'MMM d, y' }}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!-- Calificaciones !TODO: Que no cualquier voluntario pueda comentar, solo los registrados y que se actualicen bien las calidicaciones después de que se agregue una -->
+                <div class="calificaciones" style="margin-bottom: -40px;">
+                    <div class="row registro">
+                        <div class="col-md-12">
+                            <h5>Calificaciones</h5>
+                            <div class="card registrar" *ngIf="(miCalificacion == null || miCalificacion == undefined) && voluntarioRegistrado == true">
+                                <form [formGroup]="regComentario" id="registerForm">
+                                    <!-- FORM HEADER -->
+                                    <div id="form_header">
+                                      <h3>Mi calificación</h3>
+                                    </div>
+                                    <div class="section">
+                                      <h6 style="margin-bottom: 5px;">Ingrese su calificación con respecto al voluntariado</h6>
+                                      
+                                      <div id="inputs">
+                                        <div class="input-row row campos">
+
+                                          <!-- Calificación -->
+                                          <div class="input-box col-md-4 campo">
+                                            <label for="calificacion">
+                                              Calificación
+                                              <div class="input-field">
+                                                <i class="fa-solid fa-star"></i>
+                                                <select name="calificacion" id="calificacion" formControlName="calificacion">
+                                                    <option value="1" selected>1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                    <option value="4">4</option>
+                                                    <option value="5">5</option>
+                                                  </select>
+                                              </div>
+                                              <div *ngIf="regComentario.get('calificacion')?.touched && regComentario.get('calificacion')?.invalid" class="alertas">
+                                                <small *ngIf="regComentario.get('calificacion')?.errors?.['required']"><i class="fa-solid fa-circle-exclamation"></i> Este campo es obligatorio</small>
+                                              </div>
+                                            </label>
+                                          </div>
+                                  
+                                          <!-- Descripción -->
+                                          <div class="input-box col-md-4 campo">
+                                            <label for="descripcion">
+                                              Descripción
+                                              <div class="input-field">
+                                                <i class="fa-solid fa-comment"></i>
+                                                <textarea id="descripcion" formControlName="descripcion" rows="1"></textarea>
+                                              </div>
+                                              <div *ngIf="regComentario.get('descripcion')?.touched && regComentario.get('descripcion')?.invalid" class="alertas">
+                                                <small *ngIf="regComentario.get('descripcion')?.errors?.['required']"><i class="fa-solid fa-circle-exclamation"></i> Este campo es obligatorio</small>
+                                                <small *ngIf="regComentario.get('descripcion')?.errors?.['maxlength']"><i class="fa-solid fa-circle-exclamation"></i> Máximo 500 caracteres</small>
+                                              </div>
+                                            </label>
+                                          </div>
+                                          <div class="input-box col-md-4 campo">
+                                            <button type="submit" id="register_button" class="btn btn-formulario" (click)="agregarComentario()" [disabled]="regComentario.invalid" style="margin-top: 10px;">
+                                                Guardar
+                                            </button>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="card mi-calificacion" *ngIf="miCalificacion && rol == 2">
+                                <div class="card-body">
+                                    <div class="header-content">
+                                      <h6 class="card-title"><strong>{{ miCalificacion.nombre }} {{ miCalificacion.apePat }} {{ miCalificacion.apeMat }} - Yo</strong></h6>
+                                      <p class="card-date">{{ miCalificacion.fecha | date:'MMM d, y' }}</p>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-3 card-rating">
+                                                <div class="star-rating" *ngIf="miCalificacion">
+                                                    <ng-container *ngFor="let star of getStars(miCalificacion.calificacion)">
+                                                        <i class="fa-solid fa-star"></i>
+                                                    </ng-container>
+                                                    <ng-container *ngFor="let star of getStars(5 - miCalificacion.calificacion)">
+                                                        <i class="fa-regular fa-star"></i>
+                                                    </ng-container>
+                                                </div>
+                                                <p>{{miCalificacion.calificacion}}</p>
+                                        </div>
+                                        <div class="col-md-9 card-description">
+                                            <p>{{ miCalificacion.descripcion }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row lista">
+                        <div class="col-md-12">
+                            <div class="no-hay" *ngIf="calificaciones.length == 0">
+                                <h6 class="sin-calificacion">No se han añadido calificaciones</h6>
+                            </div>
+                            <div class="card califs" *ngFor="let calificacion of calificaciones;">
+                                <div class="card-body">
+                                    <div class="header-content">
+                                      <h6 class="card-title">{{ calificacion.nombre }} {{ calificacion.apePat }} {{ calificacion.apeMat }}</h6>
+                                      <p class="card-date">{{ calificacion.fecha | date:'MMM d, y' }}</p>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-3 card-rating">
+                                            <div class="star-rating">
+                                                <ng-container *ngFor="let star of getStars(calificacion.calificacion)">
+                                                    <i class="fa-solid fa-star"></i>
+                                                </ng-container>
+                                                <ng-container *ngFor="let star of getStars(5 - calificacion.calificacion)">
+                                                    <i class="fa-regular fa-star"></i>
+                                                </ng-container>
+                                            </div>
+                                            <p>{{ calificacion.calificacion }}</p>
+                                        </div>
+                                        <div class="col-md-9 card-description">
+                                            <p>{{ calificacion.descripcion }}</p>
+                                        </div>
+                                    </div>                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>

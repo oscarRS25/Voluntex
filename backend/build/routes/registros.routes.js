@@ -14,6 +14,7 @@ class RegistroRoutes {
     config() {
         // GET
         this.router.get('/:fkVoluntariado/', auth_middleware_1.verifyToken, registros_controller_1.default.obtenerVoluntariosRegistrados);
+        this.router.get('/:fkVoluntariado/:fkVoluntario', auth_middleware_1.verifyToken, registros_controller_1.default.validarVoluntarioRegistrado);
         // POST
         this.router.post('/registrar', auth_middleware_1.verifyToken, registros_controller_1.default.registrarVoluntario);
         this.router.post('/darDeBaja', auth_middleware_1.verifyToken, registros_controller_1.default.darDeBajaVoluntario);

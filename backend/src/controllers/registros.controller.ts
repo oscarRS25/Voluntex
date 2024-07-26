@@ -10,6 +10,31 @@ class RegistroController{
     res.json(registrados);
   }
 
+  public async validarVoluntarioRegistrado(req: Request, res: Response): Promise<void> {
+    try {
+      const { fkVoluntariado, fkVoluntario } = req.params;
+  
+      // Validar los parámetros
+      if (!fkVoluntariado || !fkVoluntario) {
+        res.status(400).json({ error: 'Parámetros faltantes' });
+        return;
+      }
+  
+      // Ejecutar la consulta
+      const [result] = await pool.query('SELECT * FROM registros WHERE fkVoluntariado = ? AND fkVoluntario = ?', [fkVoluntariado, fkVoluntario]);
+
+      // Verificar si el registro existe
+      if (result) {
+        res.json({ registrado: true });
+      } else {
+        res.json({ registrado: false });
+      }
+    } catch (error) {
+      console.error('Error al validar el voluntario:', error);
+      res.status(500).json({ error: 'Error interno del servidor' });
+    }
+  }
+
   public async registrarVoluntario(req: Request, res: Response): Promise<void> {
     const { fkVoluntariado } = req.body;
   

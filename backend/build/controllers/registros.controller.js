@@ -22,6 +22,31 @@ class RegistroController {
             res.json(registrados);
         });
     }
+    validarVoluntarioRegistrado(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const { fkVoluntariado, fkVoluntario } = req.params;
+                // Validar los parámetros
+                if (!fkVoluntariado || !fkVoluntario) {
+                    res.status(400).json({ error: 'Parámetros faltantes' });
+                    return;
+                }
+                // Ejecutar la consulta
+                const [result] = yield connection_1.default.query('SELECT * FROM registros WHERE fkVoluntariado = ? AND fkVoluntario = ?', [fkVoluntariado, fkVoluntario]);
+                // Verificar si el registro existe
+                if (result) {
+                    res.json({ registrado: true });
+                }
+                else {
+                    res.json({ registrado: false });
+                }
+            }
+            catch (error) {
+                console.error('Error al validar el voluntario:', error);
+                res.status(500).json({ error: 'Error interno del servidor' });
+            }
+        });
+    }
     registrarVoluntario(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { fkVoluntariado } = req.body;

@@ -13,8 +13,9 @@ class CalificacionRoutes{
 
     config(): void {
         // GET
-        this.router.get('/:fkVoluntariado/:fkVoluntario',verifyToken, calificacionController.obtenerCalificaciones);
         this.router.get('/promedio/:fkVoluntariado',verifyToken, calificacionController.obtenerPromedio);
+        this.router.get('/todas/:fkVoluntariado/:fkVoluntario',verifyToken, calificacionController.obtenerCalificaciones);
+        this.router.get('/obtener/mia/:fkVoluntariado/:fkVoluntario',verifyToken, calificacionController.obtenerMiCalificacion)
 
         // POST
         this.router.post('/',verifyToken, calificacionController.registrarCalificacion);

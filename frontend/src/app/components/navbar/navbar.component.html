@@ -17,22 +17,13 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item" *ngIf="rol != 3 && rol != null">
+        <li class="nav-item" *ngIf="rol != null">
           <a
             class="nav-link active"
-            href="/areas"
-            routerLink="/areas"
+            href="/voluntariados"
+            routerLink="/voluntariados"
             routerLinkActive="active-link"
-            >Áreas</a
-          >
-        </li>
-        <li class="nav-item" *ngIf="rol != 3 && rol != null">
-          <a
-            class="nav-link active"
-            href="/usuarios"
-            routerLink="/usuarios"
-            routerLinkActive="active-link"
-            >Usuarios</a
+            >Voluntariados</a
           >
         </li>
         <!--

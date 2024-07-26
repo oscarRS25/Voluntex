@@ -9,7 +9,9 @@ import { VoluntariadosComponent } from './components/voluntariados/voluntariados
 import { RegistroVoluntarioComponent } from './components/registro-voluntario/registro-voluntario.component';
 import { RegistroEmpresaComponent } from './components/registro-empresa/registro-empresa.component';
 import { RegistroQuienComponent } from './components/registro-quien/registro-quien.component';
-import { RegistroVoluntariadosComponent } from './components/registro-voluntariados/registro-voluntariados.component';
+import { AddVoluntariadoComponent } from './components/add-voluntariado/add-voluntariado.component';
+import { VerVoluntariadoComponent } from './components/ver-voluntariado/ver-voluntariado.component';
+import { VoluntariadoGuard } from './guards/voluntariado.guard';
 
 const routes: Routes = [
   {
@@ -42,11 +44,16 @@ const routes: Routes = [
   },
   {
     path: 'voluntariados',
-   component: VoluntariadosComponent,
+    component: VoluntariadosComponent,
   },
   {
-    path: 'registro-voluntariados',
-    component: RegistroVoluntariadosComponent,
+    path: 'registrar-voluntariado',
+    component: AddVoluntariadoComponent
+  },
+  {
+    path: 'voluntariado/:id',
+    component: VerVoluntariadoComponent,
+    canActivate: [VoluntariadoGuard]
   },
   {
     path: 'notFound',
@@ -55,9 +62,7 @@ const routes: Routes = [
   {
     path: '**',
     redirectTo: '/notFound',
-  },
-  
-
+  }
 ];
 
 @NgModule({

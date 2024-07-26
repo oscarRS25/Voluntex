@@ -1,0 +1,10 @@
+<div class="star-rating">
+    <ng-container *ngFor="let star of starsArray; let i = index">
+      <i [ngClass]="{
+        'fa-solid fa-star': i < fullStars,
+        'fa-solid fa-star-half-stroke': i === fullStars && hasHalfStar,
+        'fa-regular fa-star': i >= fullStars + (hasHalfStar ? 1 : 0)
+      }"></i>
+    </ng-container>
+</div>
+  

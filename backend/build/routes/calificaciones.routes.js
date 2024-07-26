@@ -13,8 +13,9 @@ class CalificacionRoutes {
     }
     config() {
         // GET
-        this.router.get('/:fkVoluntariado/:fkVoluntario', auth_middleware_1.verifyToken, calificaciones_controller_1.default.obtenerCalificaciones);
         this.router.get('/promedio/:fkVoluntariado', auth_middleware_1.verifyToken, calificaciones_controller_1.default.obtenerPromedio);
+        this.router.get('/todas/:fkVoluntariado/:fkVoluntario', auth_middleware_1.verifyToken, calificaciones_controller_1.default.obtenerCalificaciones);
+        this.router.get('/obtener/mia/:fkVoluntariado/:fkVoluntario', auth_middleware_1.verifyToken, calificaciones_controller_1.default.obtenerMiCalificacion);
         // POST
         this.router.post('/', auth_middleware_1.verifyToken, calificaciones_controller_1.default.registrarCalificacion);
     }
