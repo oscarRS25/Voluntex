@@ -8,7 +8,7 @@ import { Voluntariado } from '../models/voluntariado.interface';
 })
 export class VoluntariadoService {
 
-  private apiUrl = ' 44.223.130.111/api/voluntariados';
+  private apiUrl = '44.223.130.111/api/voluntariados';
 
   constructor(private http: HttpClient) { }
 
