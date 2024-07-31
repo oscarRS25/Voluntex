@@ -8,7 +8,7 @@ import { Registro } from '../models/registro.interface';
 })
 export class RegistroService {
 
-  private apiUrl = 'http://localhost:3000/api/registros';
+  private apiUrl = '172.31.25.15/api/registros';
 
   constructor(private http: HttpClient) { }
 

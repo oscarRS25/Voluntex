@@ -8,7 +8,7 @@ import { Usuario } from '../models/usuario.inteface';
 })
 export class UsuarioService {
 
-  private apiUrl = 'http://localhost:3000/api/usuarios';
+  private apiUrl = '172.31.25.15/api/usuarios';
 
   constructor(private http: HttpClient) { }
 
