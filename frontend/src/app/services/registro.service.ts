@@ -8,7 +8,7 @@ import { Registro } from '../models/registro.interface';
 })
 export class RegistroService {
 
-  private apiUrl = ' 44.223.130.111/api/registros';
+  private apiUrl = '44.223.130.111/api/registros';
 
   constructor(private http: HttpClient) { }
 
