@@ -9,7 +9,7 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 })
 export class LoginService {
 
-  API_URI = 'http://localhost:3000/api/usuarios';
+  API_URI = '172.31.25.15/api/usuarios';
 
   constructor(private http: HttpClient) { }
 
