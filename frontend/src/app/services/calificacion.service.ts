@@ -8,7 +8,7 @@ import { Calificacion } from '../models/calificacion.interface';
 })
 export class CalificacionService {
 
-  private apiUrl = 'http://localhost:3000/api/calificaciones';
+  private apiUrl = '172.31.25.15/api/calificaciones';
 
   constructor(private http: HttpClient) { }
 
